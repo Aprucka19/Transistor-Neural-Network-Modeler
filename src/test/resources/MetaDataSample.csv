@@ -1,0 +1,15 @@
+Library:,LibraryName,,,
+Cell:,CellName,,,
+Technology:,Node,Fab,Version,
+Terminals:,S,D,G,B
+SimulationModel:,BSim3v3,,,
+ModelName:,GivenModelName,,,
+ValueLabels:,gm/Id,fug,Id/W,L
+ValueUnits:,1/V,Hz,A/m,m
+ValueRange:,0:30,1:1e8,0:05,1e-7:1e-5
+InputValues,gm/Id,fug,,
+ConstantLabels:,Temperature,,,
+ConstantValues:,27,,,
+ConstantUnits:,C,,,
+ModelFileNames:,file1,file2,,
+ModelFileSections:,w3,3sigma,,
