@@ -13,9 +13,6 @@ public class SimulationToChart {
     /**
      * A class which contains the entire workflow of parsing and transforming input data, using that data to train a
      * neural network, saving that neural network, then using the trained network to plot accuracy of the trained data
-     * @param args
-     * @throws IOException
-     * @throws InterruptedException
      */
     public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -196,7 +193,7 @@ public class SimulationToChart {
             figure.plot(xList.get(i), y1List.get(i),colors[(i+4)%7], 2.0f,"OG");
         }
         figure.RenderPlot(true);
-        figure.title("Id/W vs gm/Id for 6.72e-6 L");
+        figure.title("Id/W vs gm/Id");
         figure.xlim(xmin,xmax);
         figure.ylim(ymin,ymax);
         figure.xlabel("gm/Id");
@@ -212,7 +209,7 @@ public class SimulationToChart {
             figure2.plot(xList.get(i), y1List.get(i),colors[(i+4)%7], 2.0f,"OG");
         }
         figure2.RenderPlot(true);
-        figure2.title("Id/W vs gm/Id for 6.72e-6 L");
+        figure2.title("Id/W vs gm/Id");
         figure2.xlim(xmin,xmax);
         figure2.ylim(ymin,ymax);
         figure2.xlabel("gm/Id");
@@ -228,7 +225,7 @@ public class SimulationToChart {
             figure3.plot(xList.get(i), yList.get(i), colors[i%7], 2.0f, "NN");
         }
         figure3.RenderPlot(true);
-        figure3.title("Id/W vs gm/Id for 6.72e-6 L");
+        figure3.title("Id/W vs gm/Id");
         figure3.xlim(xmin,xmax);
         figure3.ylim(ymin,ymax);
         figure3.xlabel("gm/Id");
