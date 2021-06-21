@@ -23,7 +23,9 @@ import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.ui.RectangleAnchor;
 import org.jfree.ui.RectangleEdge;
 
-
+/**
+ * A class which allows for a simpler plotting interface in java, similar to that of MatLab
+ */
 public class MatlabChart {
 
     Font font;

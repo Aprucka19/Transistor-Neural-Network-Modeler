@@ -23,6 +23,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Class that is used to operate a trained Transistor Model which takes the model file as the input
+ */
 public class UseTransistorModel {
 
     private MultiLayerNetwork model;
@@ -42,9 +46,11 @@ public class UseTransistorModel {
     TransformProcess outputTransformProcess;
 
 
-
-
-
+    /**
+     * Constructor for the UseTransistorModel class which takes the path to the model file as an input
+     * @param modelPath the path to the model file
+     * @throws IOException
+     */
     public UseTransistorModel(String modelPath) throws IOException {
 
         File modelSave = new File(modelPath);

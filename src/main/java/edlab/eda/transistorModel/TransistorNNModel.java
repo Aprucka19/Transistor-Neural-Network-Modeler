@@ -287,8 +287,10 @@ public class TransistorNNModel {
 
 
     /**
-     * Function to use a fit TransistorNNModel where modelInput is the inputs, and the outputs are returned as
+     * Function to use the already fit TransistorNNModel where modelInput is the inputs, and the outputs are returned as
      * calculated by the model
+     * The functionality in this method is also housed in the UseTransistorModel class which is more flexible as it
+     * takes a saved model, and thus retraining each time is not required when using the model
      * @param modelInput List<List<String>> Matrix of the input data for which outputs are desired
      * @return a List<List<String>> of outputs that correspond with the inputs to the function
      * @throws IOException
@@ -406,7 +408,8 @@ public class TransistorNNModel {
 
 
     /**
-     * Saves the built model and relevant varables in a .bin file specified at the end of the filePath
+     * Saves the built model and relevant varables in a .bin file specified at the end of the filePath, and saves
+     * the metadata given to the object in a .txt file.
      * @param
      * @throws IOException
      */

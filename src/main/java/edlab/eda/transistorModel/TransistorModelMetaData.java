@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * A class used to house relevant MetaData for a transistor model. The given example parses the data from a specific
+ * format in a csv file, however if other input methods are desired for metaData that can be accomplished by adding
+ * additional constructors
+ */
 public class TransistorModelMetaData {
     private String library;
     private String cell;
@@ -29,6 +34,13 @@ public class TransistorModelMetaData {
     private String[] modelFileNames;
     private String[] modelFileSections;
 
+    /**
+     * Constructor which parses metadata from a csv file
+     * @param filePath path to file
+     * @param isCSV is CSV
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public TransistorModelMetaData(String filePath,boolean isCSV) throws IOException, InterruptedException {
         if(isCSV){
 
@@ -187,6 +199,11 @@ public class TransistorModelMetaData {
         return returnVal;
     }
 
+    /**
+     * Custom toString functino used to print the data in a readable format to a .txt file, when the save to file
+     * function is called on a TransistorNNModel
+     * @return String form of the MetaData
+     */
     public String toString(){
 
 

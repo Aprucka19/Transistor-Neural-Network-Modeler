@@ -2,6 +2,11 @@ package edlab.eda.transistorModel;
 
 import java.util.List;
 
+
+/**
+ * Class which takes in a dataset in the form List<List<String>> and can return desired columns in the form of
+ * Double[] and column max and min values. Used for plotting data
+ */
 public class StringMatrixTransforms {
     List<List<String>> data;
 

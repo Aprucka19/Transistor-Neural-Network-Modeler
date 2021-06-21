@@ -16,11 +16,25 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
+
+/**
+ * A class which parses either a single plot or multiple plots from a .raw file, returning the List<List<String>>
+ *     Datatype for the TransistorNeuralNetwork
+ */
 public class RAWToStringMatrix {
     private List<List<String>> dataSet;
     private String[] colNames;
 
 
+    /**
+     * Takes in the specific plot index that is desired, as well as a boolean saying weather the input .raw file is binary
+     * or ascii
+     * @param filePath path to the .raw file
+     * @param plotNum plot index desired
+     * @param isBin boolean isBin
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public RAWToStringMatrix(String filePath,int plotNum,boolean isBin) throws IOException, InterruptedException {
 
 
@@ -62,6 +76,14 @@ public class RAWToStringMatrix {
 
     }
 
+    /**
+     * Parses all plots from a .raw file into one dataset,takes as an argument a
+     * boolean saying weather the input .raw file is binary. Input plots must be of same width dimensions
+     * @param filePath path to file
+     * @param isBin boolean isBin
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public RAWToStringMatrix(String filePath,boolean isBin) throws IOException, InterruptedException {
 
 

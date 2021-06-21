@@ -11,11 +11,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class that
+ * Class which parses a csv file into a matrix of strings suitable to use as inputs for the Transistor Neural Network
  */
 public class CSVtoStringMatrix {
     private List<List<String>> data;
 
+    /**
+     * Constructor, takes in the filepath, the desired amount of rows, and the number of rows to skip at the beginning
+     * of the file
+     * @param filePath path to CSV file
+     * @param numSkip int rows to skip
+     * @param numExamples int examples to convert to List<List<String>>
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public CSVtoStringMatrix(String filePath,int numSkip,int numExamples) throws IOException, InterruptedException {
 
         FileSplit inputSplit = new FileSplit(new File(filePath));
@@ -33,6 +42,10 @@ public class CSVtoStringMatrix {
         }
     }
 
+    /**
+     * returns the List<List<String>> data corresponding to the given object created
+     * @return data
+     */
     public List<List<String>> getData() {
         return data;
     }

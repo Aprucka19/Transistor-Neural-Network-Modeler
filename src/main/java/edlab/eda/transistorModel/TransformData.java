@@ -16,6 +16,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * An class used to transform the input data in many different ways. Must be customized to each individual
+ * dataset depending on what transformations are desired
+ */
 public class TransformData {
 
     private List<List<String>> data;
@@ -26,12 +31,13 @@ public class TransformData {
 
     public List<List<String>> transform(String[] colNames) throws IOException, InterruptedException {
 
+        //using the column names of the input dataset, create a schema for the data
         Schema schema = new Schema.Builder()
             .addColumnsDouble(colNames)
             .build();
-        //endregion
 
 
+        //create a transform process which adds, removes, reorders, and manipulates the columns in the dataset
         TransformProcess transform = new TransformProcess.Builder(schema)
             .addConstantDoubleColumn("w",1e-5)
             .doubleColumnsMathOp("id/w",MathOp.Divide, new String[]{"M0.m1:id", "w"})
@@ -40,11 +46,13 @@ public class TransformData {
             .build();
 
 
+        //Use a record reader to parse the input data through the transformation process
         ListStringSplit inputSplit = new ListStringSplit(this.data);
         TransformProcessRecordReader inputRecordReader = new TransformProcessRecordReader(new ListStringRecordReader(), transform);
         inputRecordReader.initialize(inputSplit);
         List<List<Writable>> inputData = inputRecordReader.next(data.size());
 
+        //convert the transformed data from Writables to Strings
         List<List<String>> newData = new ArrayList<>();
         for(List<Writable> l:inputData){
             List<String> temp = new ArrayList<>();
@@ -53,9 +61,6 @@ public class TransformData {
             }
             newData.add(temp);
         }
-
-
-
         return newData;
     }
 
