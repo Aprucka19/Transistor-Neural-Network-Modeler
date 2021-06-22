@@ -31,8 +31,9 @@ xlabel("gm/id")
 ylabel("id/w")
 
 %calculates result data on all 60k examples(Will take approx 3 minutes)
+codegen -O enable:inline model.useModelPar
 tic
-data = model.useModel(csvData(:,1:2));
+data = model.useModel(csvData(1:1001,1:2));
 toc
 
 %show a scatter plot of simulated versus nn data

@@ -132,7 +132,7 @@ and far easier visualization of the model itself with matlabs intuitive plotting
 ![](src/test/resources/MatlabTwoLengthsPlot.jpg)
 
 Using the model matlab is also able to intuitively plot the output characteristics of the model in higher dimensions. 
-This plot shows the corresponding id/w for and gm/id and fug given. The resulting curve covers far more points than the input simulation did.
+This plot shows the corresponding id/w for any gm/id and fug given. The resulting curve covers far more points than the input simulation did.
 
 ![](src/test/resources/Matlab3DPlot.jpg)
 
