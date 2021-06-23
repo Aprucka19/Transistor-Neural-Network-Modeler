@@ -73,7 +73,6 @@ public class TransistorNNModel {
     /**
      * Constructor for a new TransistorNNModel
      * @param metaData A metadata object used to return a metaData text file
-     * @param givenCols the column names of all of the columns in the input matrix
      * @param colNames The names of the desired data columns in desired order
      * @param transformCols The names of the columns to be transformed (standard transform is the boxCox transform)
      * @param numInputs The number of input columns
@@ -118,14 +117,17 @@ public class TransistorNNModel {
             .updater(new Adam(this.learningRate,this.beta1,this.beta2,1e-8))
 //            .l2(Math.sqrt(batchSize/(inputData.size()*numEpochs)))
             .list()
-            .layer(new DenseLayer.Builder().nIn(this.numInputs).nOut(128).build())
-            .layer(new DenseLayer.Builder().nIn(128).nOut(256).build())
-            .layer(new DenseLayer.Builder().nIn(256).nOut(512).build())
-            .layer(new DenseLayer.Builder().nIn(512).nOut(1024).build())
-            .layer(new DenseLayer.Builder().nIn(1024).nOut(512).build())
-            .layer(new DenseLayer.Builder().nIn(512).nOut(256).build())
-            .layer(new DenseLayer.Builder().nIn(256).nOut(128).build())
-            .layer(new OutputLayer.Builder(LossFunctions.LossFunction.MSE)
+                .layer(new DenseLayer.Builder().nIn(this.numInputs).nOut(128).build())
+                .layer(new DenseLayer.Builder().nIn(128).nOut(256).build())
+                .layer(new DenseLayer.Builder().nIn(256).nOut(512).build())
+                .layer(new DenseLayer.Builder().nIn(512).nOut(1024).build())
+
+                .layer(new DenseLayer.Builder().nIn(1024).nOut(2048).build())
+                .layer(new DenseLayer.Builder().nIn(2048).nOut(1024).build())
+                .layer(new DenseLayer.Builder().nIn(1024).nOut(512).build())
+                .layer(new DenseLayer.Builder().nIn(512).nOut(256).build())
+                .layer(new DenseLayer.Builder().nIn(256).nOut(128).build())
+                .layer(new OutputLayer.Builder(LossFunctions.LossFunction.MSE)
                 .activation(Activation.RELU).nIn(128).nOut(this.numOutputs).build())
             .build();
     }

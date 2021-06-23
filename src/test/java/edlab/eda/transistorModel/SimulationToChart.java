@@ -17,8 +17,10 @@ public class SimulationToChart {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         //initialize paths
-        String rawPath = "C:/Users/prucka/Transistor-Neural-Network-Modeler/src/main/resources/SimulationToChart/nmos2.raw";
-        String baseDir = "C:/Users/prucka/Transistor-Neural-Network-Modeler/src/main/resources/";
+        String rawName = "nmos2.raw";
+        String baseDir = "C:/Users/Alex Prucka/IdeaProjects/Transistor-Neural-Network-Modeler/src/test/resources/";
+        String rawPath = baseDir +  rawName;
+
 
 
         //region Using NutParser convert the output statistical data to Arraylists of Strings, and retrieve the col names
@@ -42,7 +44,8 @@ public class SimulationToChart {
 
         //Removing data where the fug is 0 or the gm/id > 25
         for(int i = fixedData.size()-1; i >= 0;i--){
-            if(round(Double.parseDouble(fixedData.get(i).get(1)),2) == 0 || Double.parseDouble(fixedData.get(i).get(0)) > 25){
+            if(round(Double.parseDouble(fixedData.get(i).get(1)),2) == 0 || Double.parseDouble(fixedData.get(i).get(0)) > 20
+            || Double.parseDouble(fixedData.get(i).get(0)) < 1){
                 fixedData.remove(i);
             }
         }
@@ -62,7 +65,7 @@ public class SimulationToChart {
 
         //Create NNModel trainer objet with data and input desired learning parameters
         TransistorNNModel tmodel = new TransistorNNModel(metaData, columnNames,new String[]{"M0.m1:fug","id/w"},
-            2,.25,0.01,0.9,0.999,10000,50,fixedData.subList(0, fixedData.size()));
+            2,.25,0.001,0.9,0.999,10000,150,fixedData.subList(0, fixedData.size()));
 
         //Fit the nework to the input data, and specify that the training UI is desired
         tmodel.fitNetworkToInputData(true);
@@ -71,7 +74,7 @@ public class SimulationToChart {
         tmodel.evaluateFit(fixedData.subList(0,10000));
 
         //Save the model and metadata
-        tmodel.saveModelAsFile(baseDir,"realDataModel22.bin","MetaDataReal.txt");
+        tmodel.saveModelAsFile(baseDir,"nmos.bin","MetaDataReal.txt");
         //endregion
 
 
@@ -80,7 +83,7 @@ public class SimulationToChart {
         fixedData.sort(Comparator.comparingDouble(row -> Double.parseDouble(row.get(0))));
 
         //region Write output data to results CSV file
-        BufferedWriter br = new BufferedWriter(new FileWriter(baseDir + "simData.csv"));
+        BufferedWriter br = new BufferedWriter(new FileWriter(baseDir + "simDataNmos.csv"));
         StringBuilder sb = new StringBuilder();
 
         //put results in output file
@@ -137,7 +140,7 @@ public class SimulationToChart {
 
         //region Run the input data through the trained model
         //Create the UseTransistorModel object with the previously saved model File
-        UseTransistorModel modelUse2 = new UseTransistorModel(baseDir + "realDataModel2.bin");
+        UseTransistorModel modelUse2 = new UseTransistorModel(baseDir + "nmos.bin");
 
         //For each input data set, parse it through the UseModel function of the UseTransistorModel and collect the
         //resulting output data
@@ -201,7 +204,7 @@ public class SimulationToChart {
         figure.grid("on","on");
         figure.legend("northeast");
         figure.font("Helvetica",15);
-        figure.saveas(baseDir + "graph.jpeg",1000,800);
+        figure.saveas(baseDir + "nmos1.jpeg",1000,800);
 
         //one plot with just the original curves
         MatlabChart figure2 = new MatlabChart();
@@ -217,7 +220,7 @@ public class SimulationToChart {
         figure2.grid("on","on");
         figure2.legend("northeast");
         figure2.font("Helvetica",15);
-        figure2.saveas(baseDir + "graph2.jpeg",1000,800);
+        figure2.saveas(baseDir + "nmos2.jpeg",1000,800);
 
         //One plot with just the neural net curves
         MatlabChart figure3 = new MatlabChart();
@@ -233,7 +236,7 @@ public class SimulationToChart {
         figure3.grid("on","on");
         figure3.legend("northeast");
         figure3.font("Helvetica",15);
-        figure3.saveas(baseDir + "graph3.jpeg",1000,800);
+        figure3.saveas(baseDir + "nmos3.jpeg",1000,800);
         //endregion
 
 

@@ -22517,3 +22517,1247 @@ Deeplearning4j UI server is auto-stopping after thread (name: main) died.
                 
 Deeplearning4j UI server stopped.
 
+2021-06-22 18:44:08,177 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [CpuBackend] backend
+
+2021-06-22 18:44:09,032 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 12
+
+2021-06-22 18:44:09,034 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+*********************************** CPU Feature Check Warning ***********************************
+
+2021-06-22 18:44:09,034 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+Warning: Initializing ND4J with Generic x86 binary on a CPU with AVX/AVX2 support
+
+2021-06-22 18:44:09,034 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+Using ND4J with AVX/AVX2 will improve performance. See deeplearning4j.org/cpu for more details
+
+2021-06-22 18:44:09,034 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+Or set environment variable ND4J_IGNORE_AVX=true to suppress this warning
+
+2021-06-22 18:44:09,034 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+*************************************************************************************************
+
+2021-06-22 18:44:09,085 - [INFO] - from org.nd4j.nativeblas.Nd4jBlas in main
+                
+Number of threads used for OpenMP BLAS: 12
+
+2021-06-22 18:44:09,100 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CPU]; OS: [Windows 10]
+
+2021-06-22 18:44:09,100 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 18:44:09,100 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [OPENBLAS]
+
+2021-06-22 18:44:09,744 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 18:44:09,755 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 18:44:10,912 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 18:44:10,916 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=af316b50)
+
+2021-06-22 18:47:47,323 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [CpuBackend] backend
+
+2021-06-22 18:47:48,168 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 12
+
+2021-06-22 18:47:48,170 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+*********************************** CPU Feature Check Warning ***********************************
+
+2021-06-22 18:47:48,170 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+Warning: Initializing ND4J with Generic x86 binary on a CPU with AVX/AVX2 support
+
+2021-06-22 18:47:48,170 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+Using ND4J with AVX/AVX2 will improve performance. See deeplearning4j.org/cpu for more details
+
+2021-06-22 18:47:48,170 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+Or set environment variable ND4J_IGNORE_AVX=true to suppress this warning
+
+2021-06-22 18:47:48,170 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+*************************************************************************************************
+
+2021-06-22 18:47:48,223 - [INFO] - from org.nd4j.nativeblas.Nd4jBlas in main
+                
+Number of threads used for OpenMP BLAS: 12
+
+2021-06-22 18:47:48,239 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CPU]; OS: [Windows 10]
+
+2021-06-22 18:47:48,239 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 18:47:48,239 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [OPENBLAS]
+
+2021-06-22 18:47:48,885 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 18:47:48,900 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 18:47:50,128 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 18:47:50,131 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=facff926)
+
+2021-06-22 18:49:32,309 - [WARN] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Skipped [JCublasBackend] backend (unavailable): java.lang.UnsatisfiedLinkError: C:\Users\Alex Prucka\.javacpp\cache\cuda-10.2-7.6-1.5.3-windows-x86_64.jar\org\bytedeco\cuda\windows-x86_64\jnicudart.dll: Can't find dependent libraries
+
+2021-06-22 18:50:40,245 - [WARN] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Skipped [JCublasBackend] backend (unavailable): java.lang.UnsatisfiedLinkError: C:\Users\Alex Prucka\.javacpp\cache\cuda-10.2-7.6-1.5.3-windows-x86_64.jar\org\bytedeco\cuda\windows-x86_64\jnicudart.dll: Can't find dependent libraries
+
+2021-06-22 18:54:06,927 - [WARN] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Skipped [JCublasBackend] backend (unavailable): java.lang.UnsatisfiedLinkError: C:\Users\Alex Prucka\.javacpp\cache\cuda-10.2-7.6-1.5.3-windows-x86_64.jar\org\bytedeco\cuda\windows-x86_64\jnicudart.dll: Can't find dependent libraries
+
+2021-06-22 18:54:34,245 - [WARN] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Skipped [JCublasBackend] backend (unavailable): java.lang.UnsatisfiedLinkError: C:\Users\Alex Prucka\.javacpp\cache\cuda-10.2-7.6-1.5.3-windows-x86_64.jar\org\bytedeco\cuda\windows-x86_64\jnicudart.dll: Can't find dependent libraries
+
+2021-06-22 19:00:16,620 - [WARN] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Skipped [JCublasBackend] backend (unavailable): java.lang.UnsatisfiedLinkError: C:\Users\Alex Prucka\.javacpp\cache\cuda-10.2-7.6-1.5.3-windows-x86_64.jar\org\bytedeco\cuda\windows-x86_64\jnicudart.dll: Can't find dependent libraries
+
+2021-06-22 19:01:03,756 - [WARN] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Skipped [JCublasBackend] backend (unavailable): java.lang.UnsatisfiedLinkError: C:\Users\Alex Prucka\.javacpp\cache\cuda-10.2-7.6-1.5.3-windows-x86_64.jar\org\bytedeco\cuda\windows-x86_64\jnicudart.dll: Can't find dependent libraries
+
+2021-06-22 19:06:37,108 - [WARN] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Skipped [JCublasBackend] backend (unavailable): java.lang.UnsatisfiedLinkError: C:\Users\Alex Prucka\.javacpp\cache\cuda-10.2-7.6-1.5.3-windows-x86_64.jar\org\bytedeco\cuda\windows-x86_64\jnicudart.dll: Can't find dependent libraries
+
+2021-06-22 19:35:03,180 - [WARN] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Skipped [JCublasBackend] backend (unavailable): java.lang.UnsatisfiedLinkError: C:\Users\Alex Prucka\.javacpp\cache\cuda-10.2-7.6-1.5.3-windows-x86_64.jar\org\bytedeco\cuda\windows-x86_64\jnicudart.dll: Can't find dependent libraries
+
+2021-06-22 19:37:50,739 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:37:56,435 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:37:56,498 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:37:56,498 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:37:56,498 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:37:56,528 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:37:56,530 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:37:58,977 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:37:58,992 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:38:00,175 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:38:00,179 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=e7671188)
+
+2021-06-22 19:38:58,726 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in Thread-6
+                
+Deeplearning4j UI server is auto-stopping after thread (name: main) died.
+
+2021-06-22 19:38:58,746 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server stopped.
+
+2021-06-22 19:40:12,626 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:40:15,500 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:40:15,551 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:40:15,552 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:40:15,552 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:40:15,580 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:40:15,582 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:40:16,726 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:40:16,737 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:40:17,901 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:40:17,904 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=d8594c14)
+
+2021-06-22 19:40:57,594 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:41:00,547 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:41:00,598 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:41:00,598 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:41:00,598 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:41:00,624 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:41:00,625 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:41:01,784 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:41:01,796 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:41:02,933 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:41:02,936 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=310755b0)
+
+2021-06-22 19:41:31,811 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:41:34,706 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:41:34,756 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:41:34,756 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:41:34,756 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:41:34,783 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:41:34,784 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:41:35,928 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:41:35,942 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:41:37,100 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:41:37,104 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=99f5031f)
+
+2021-06-22 19:42:50,760 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in Thread-6
+                
+Deeplearning4j UI server is auto-stopping after thread (name: main) died.
+
+2021-06-22 19:42:50,774 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server stopped.
+
+2021-06-22 19:43:49,989 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:43:52,918 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:43:52,971 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:43:52,971 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:43:52,971 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:43:52,998 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:43:53,000 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:43:54,137 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:43:54,148 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:43:55,268 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:43:55,272 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=1c179acd)
+
+2021-06-22 19:45:29,627 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in Thread-6
+                
+Deeplearning4j UI server is auto-stopping after thread (name: main) died.
+
+2021-06-22 19:45:29,640 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server stopped.
+
+2021-06-22 19:46:09,525 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:46:12,347 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:46:12,397 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:46:12,398 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:46:12,398 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:46:12,424 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:46:12,425 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:46:13,574 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:46:13,585 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:46:14,677 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:46:14,680 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=149c811a)
+
+2021-06-22 19:46:43,467 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:46:46,641 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:46:46,691 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:46:46,691 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:46:46,691 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:46:46,718 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:46:46,720 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:46:47,868 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:46:47,880 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:46:49,035 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:46:49,039 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=a5f14845)
+
+2021-06-22 19:47:10,400 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:47:13,314 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:47:13,363 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:47:13,363 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:47:13,363 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:47:13,389 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:47:13,390 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:47:14,538 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:47:14,550 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:47:15,694 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:47:15,699 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=e68d910c)
+
+2021-06-22 19:47:36,407 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:47:39,334 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:47:39,385 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:47:39,386 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:47:39,386 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:47:39,411 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:47:39,413 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:47:40,565 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:47:40,577 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:47:41,719 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:47:41,723 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=da2a28a2)
+
+2021-06-22 19:48:02,275 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:48:05,135 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:48:05,186 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:48:05,186 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:48:05,186 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:48:05,212 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:48:05,214 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:48:06,352 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:48:06,364 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:48:07,404 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:48:07,408 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=19758f25)
+
+2021-06-22 19:49:01,247 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:49:04,218 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:49:04,268 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:49:04,268 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:49:04,268 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:49:04,293 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:49:04,295 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:49:05,444 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:49:05,456 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:49:06,587 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:49:06,590 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=7a0f884f)
+
+2021-06-22 19:49:54,869 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:49:57,862 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:49:57,912 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:49:57,912 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:49:57,912 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:49:57,938 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:49:57,939 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:49:59,086 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:49:59,098 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:50:00,356 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:50:00,360 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=fb23d2f5)
+
+2021-06-22 19:51:49,125 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in Thread-6
+                
+Deeplearning4j UI server is auto-stopping after thread (name: main) died.
+
+2021-06-22 19:51:49,140 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server stopped.
+
+2021-06-22 19:53:44,516 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:53:47,363 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:53:47,414 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:53:47,414 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:53:47,415 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:53:47,440 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:53:47,441 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:53:48,513 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:53:48,524 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:53:49,476 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:53:49,480 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=632493c0)
+
+2021-06-22 19:55:22,421 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in Thread-6
+                
+Deeplearning4j UI server is auto-stopping after thread (name: main) died.
+
+2021-06-22 19:55:22,434 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server stopped.
+
+2021-06-22 19:57:43,662 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:57:46,575 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:57:46,632 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:57:46,632 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:57:46,632 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:57:46,658 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:57:46,659 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:57:47,710 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:57:47,723 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:57:48,676 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:57:48,680 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=cd10e674)
+
+2021-06-22 19:59:20,712 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in Thread-6
+                
+Deeplearning4j UI server is auto-stopping after thread (name: main) died.
+
+2021-06-22 19:59:20,726 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server stopped.
+
+2021-06-22 19:59:46,441 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 19:59:49,308 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 19:59:49,358 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 19:59:49,358 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 19:59:49,358 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 19:59:49,384 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 19:59:49,385 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 19:59:50,473 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 19:59:50,485 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 19:59:51,437 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 19:59:51,441 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=dea5975b)
+
+2021-06-22 20:01:16,059 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 20:01:18,997 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 20:01:19,048 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 20:01:19,048 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 20:01:19,048 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 20:01:19,075 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 20:01:19,076 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 20:01:20,135 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 20:01:20,147 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 20:01:21,108 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 20:01:21,111 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=58ad8cae)
+
+2021-06-22 20:03:37,512 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in Thread-6
+                
+Deeplearning4j UI server is auto-stopping after thread (name: main) died.
+
+2021-06-22 20:03:37,531 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server stopped.
+
+2021-06-22 20:04:10,349 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 20:04:13,314 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 20:04:13,366 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 20:04:13,366 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 20:04:13,366 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 20:04:13,392 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 20:04:13,393 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 20:04:14,474 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 20:04:14,486 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 20:04:15,437 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 20:04:15,442 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=f6494099)
+
+2021-06-22 20:04:27,950 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 20:04:30,858 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 20:04:30,907 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 20:04:30,908 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 20:04:30,908 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 20:04:30,934 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 20:04:30,936 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 20:04:31,987 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 20:04:31,998 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 20:04:32,961 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 20:04:32,965 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=6c3d5fa8)
+
+2021-06-22 20:06:30,263 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 20:06:33,222 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 20:06:33,272 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 20:06:33,272 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 20:06:33,272 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 20:06:33,298 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 20:06:33,300 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 20:06:34,359 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 20:06:34,371 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 20:06:35,358 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 20:06:35,362 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=17d4a2d0)
+
+2021-06-22 20:08:58,466 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in Thread-6
+                
+Deeplearning4j UI server is auto-stopping after thread (name: main) died.
+
+2021-06-22 20:08:58,478 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server stopped.
+
+2021-06-22 20:09:30,015 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 20:09:32,948 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 20:09:32,999 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 20:09:32,999 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 20:09:32,999 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 20:09:33,025 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 20:09:33,027 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 20:09:34,110 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 20:09:34,122 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 20:09:35,072 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 20:09:35,077 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=d9675f56)
+
+2021-06-22 20:11:36,049 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 20:11:38,991 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 20:11:39,040 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 20:11:39,041 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 20:11:39,041 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 20:11:39,067 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 20:11:39,068 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 20:11:40,164 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 20:11:40,177 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 20:11:41,149 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 20:11:41,153 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=9db8354c)
+
+2021-06-22 20:14:53,282 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in Thread-6
+                
+Deeplearning4j UI server is auto-stopping after thread (name: main) died.
+
+2021-06-22 20:14:53,295 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server stopped.
+
+2021-06-22 20:15:28,131 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 20:15:30,989 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 20:15:31,042 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 20:15:31,042 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 20:15:31,043 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 20:15:31,071 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 20:15:31,072 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 20:15:32,163 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 20:15:32,173 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 20:15:33,127 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 20:15:33,131 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=8e01e774)
+
+2021-06-22 20:35:29,660 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-22 20:35:32,558 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-22 20:35:32,608 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-22 20:35:32,608 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-22 20:35:32,608 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-22 20:35:32,634 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-22 20:35:32,635 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-22 20:35:33,736 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-22 20:35:33,748 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-22 20:35:34,692 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-22 20:35:34,696 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=512efbde)
+
+2021-06-22 20:38:46,471 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in Thread-6
+                
+Deeplearning4j UI server is auto-stopping after thread (name: main) died.
+
+2021-06-22 20:38:46,484 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server stopped.
+
