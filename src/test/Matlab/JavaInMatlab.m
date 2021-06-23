@@ -1,7 +1,7 @@
 %Path to the NNModel created by the TransistorNNModel class
-modelPath = "C:/Users/prucka/Transistor-Neural-Network-Modeler/src/test/resources/realDataModel2.bin";
+modelPath = "C:/Users/Alex Prucka/IdeaProjects/Transistor-Neural-Network-Modeler/src/test/resources/realDataModel2.bin";
 
-addpath("C:\Users\prucka\Transistor-Neural-Network-Modeler\src\main\Matlab\");
+addpath("C:\Users\Alex Prucka\IdeaProjects\Transistor-Neural-Network-Modeler\src\main\Matlab")
 
 %initializing model object with path to model file
 %Will throw a warning, not a problem in practice

@@ -24501,3 +24501,55 @@ Deeplearning4j UI server is auto-stopping after thread (name: main) died.
                 
 Deeplearning4j UI server stopped.
 
+2021-06-23 11:36:41,502 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-23 11:36:44,448 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 32
+
+2021-06-23 11:36:44,500 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CUDA]; OS: [Windows 10]
+
+2021-06-23 11:36:44,500 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-23 11:36:44,500 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [CUBLAS]
+
+2021-06-23 11:36:44,526 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+ND4J CUDA build version: 10.1.243
+
+2021-06-23 11:36:44,527 - [INFO] - from org.nd4j.linalg.jcublas.JCublasBackend in main
+                
+CUDA device 0: [GeForce GTX 1070 with Max-Q Design]; cc: [6.1]; Total memory: [8589934592]
+
+2021-06-23 11:36:45,626 - [INFO] - from org.nd4j.linalg.dataset.api.preprocessor.stats.MinMaxStats in main
+                
+NormalizerMinMaxScaler: max val minus min val found to be zero. Transform will round up to epsilon to avoid nans.
+
+2021-06-23 11:36:45,638 - [INFO] - from org.deeplearning4j.nn.multilayer.MultiLayerNetwork in main
+                
+Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+
+2021-06-23 11:36:46,690 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server started at: http://localhost:9000
+
+2021-06-23 11:36:46,694 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in main
+                
+StatsStorage instance attached to UI: InMemoryStatsStorage(uid=f235e4b1)
+
+2021-06-23 11:39:55,833 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in Thread-6
+                
+Deeplearning4j UI server is auto-stopping after thread (name: main) died.
+
+2021-06-23 11:39:55,847 - [INFO] - from org.deeplearning4j.ui.VertxUIServer in vert.x-eventloop-thread-0
+                
+Deeplearning4j UI server stopped.
+

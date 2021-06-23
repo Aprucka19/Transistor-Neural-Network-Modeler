@@ -17,7 +17,7 @@ public class SimulationToChart {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         //initialize paths
-        String rawName = "nmos2.raw";
+        String rawName = "pmos.raw";
         String baseDir = "C:/Users/Alex Prucka/IdeaProjects/Transistor-Neural-Network-Modeler/src/test/resources/";
         String rawPath = baseDir +  rawName;
 
@@ -74,7 +74,7 @@ public class SimulationToChart {
         tmodel.evaluateFit(fixedData.subList(0,10000));
 
         //Save the model and metadata
-        tmodel.saveModelAsFile(baseDir,"nmos.bin","MetaDataReal.txt");
+        tmodel.saveModelAsFile(baseDir,"pmos.bin","MetaDataReal.txt");
         //endregion
 
 
@@ -83,7 +83,7 @@ public class SimulationToChart {
         fixedData.sort(Comparator.comparingDouble(row -> Double.parseDouble(row.get(0))));
 
         //region Write output data to results CSV file
-        BufferedWriter br = new BufferedWriter(new FileWriter(baseDir + "simDataNmos.csv"));
+        BufferedWriter br = new BufferedWriter(new FileWriter(baseDir + "simDataPmos.csv"));
         StringBuilder sb = new StringBuilder();
 
         //put results in output file
@@ -140,7 +140,7 @@ public class SimulationToChart {
 
         //region Run the input data through the trained model
         //Create the UseTransistorModel object with the previously saved model File
-        UseTransistorModel modelUse2 = new UseTransistorModel(baseDir + "nmos.bin");
+        UseTransistorModel modelUse2 = new UseTransistorModel(baseDir + "pmos.bin");
 
         //For each input data set, parse it through the UseModel function of the UseTransistorModel and collect the
         //resulting output data
@@ -204,7 +204,7 @@ public class SimulationToChart {
         figure.grid("on","on");
         figure.legend("northeast");
         figure.font("Helvetica",15);
-        figure.saveas(baseDir + "nmos1.jpeg",1000,800);
+        figure.saveas(baseDir + "Charts/pmos1.jpeg",1000,800);
 
         //one plot with just the original curves
         MatlabChart figure2 = new MatlabChart();
@@ -220,7 +220,7 @@ public class SimulationToChart {
         figure2.grid("on","on");
         figure2.legend("northeast");
         figure2.font("Helvetica",15);
-        figure2.saveas(baseDir + "nmos2.jpeg",1000,800);
+        figure2.saveas(baseDir + "Charts/pmos2.jpeg",1000,800);
 
         //One plot with just the neural net curves
         MatlabChart figure3 = new MatlabChart();
@@ -236,7 +236,7 @@ public class SimulationToChart {
         figure3.grid("on","on");
         figure3.legend("northeast");
         figure3.font("Helvetica",15);
-        figure3.saveas(baseDir + "nmos3.jpeg",1000,800);
+        figure3.saveas(baseDir + "Charts/pmos3.jpeg",1000,800);
         //endregion
 
 
