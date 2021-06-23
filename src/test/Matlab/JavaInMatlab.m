@@ -1,5 +1,5 @@
 %Path to the NNModel created by the TransistorNNModel class
-modelPath = "C:/Users/Alex Prucka/IdeaProjects/Transistor-Neural-Network-Modeler/src/test/resources/realDataModel2.bin";
+modelPath = "C:/Users/Alex Prucka/IdeaProjects/Transistor-Neural-Network-Modeler/src/test/resources/nmos.bin";
 
 addpath("C:\Users\Alex Prucka\IdeaProjects\Transistor-Neural-Network-Modeler\src\main\Matlab")
 
@@ -9,7 +9,7 @@ model = NNModel(modelPath);
 %displays input and output columns of the model
 model.properties
 
-csvFile = "C:\Users\prucka\Transistor-Neural-Network-Modeler\src\test\resources\simData.csv";
+csvFile = "C:\Users\Alex Prucka\IdeaProjects\Transistor-Neural-Network-Modeler\src\test\resources\simDataNmos.csv";
 csvData = dlmread(csvFile, ",", 0, 0);
 
 %data from two seperate lengths
@@ -29,11 +29,12 @@ plot(data2(:,1),data2(:,4))
 set(gca, 'YScale', 'log')
 xlabel("gm/id")
 ylabel("id/w")
+legend("NN Length 1","Simulation Length 1", "NN Length 2", "Simulation Length 2")
 
-%calculates result data on all 60k examples(Will take approx 3 minutes)
-codegen -O enable:inline model.useModelPar
+%calculates result data on all 60k examples(Will take a few minutes)
+
 tic
-data = model.useModel(csvData(1:1001,1:2));
+data = model.useModel(csvData(:,1:2));
 toc
 
 %show a scatter plot of simulated versus nn data
@@ -49,6 +50,8 @@ set(gca, 'ZScale', 'log')
 %will take a few minutes to run
 fsurf(@(X,Y) model.useModelCol([X' Y'],2),[1 20 1e7 1.5e10])
 set(gca, 'ZScale', 'log')
-
+xlabel("gm/id")
+ylabel("fug")
+zlabel("id/w")
 
 

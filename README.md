@@ -93,15 +93,15 @@ to calculate outputs given inputs for small or larger datasets. It also plots cu
 with the simulation. The Model used in the example takes as inputs the gm/id desired, and the fug desired of the transistor, and 
 gives the corresponding id/w and L values. Pictured below are the resulting curves from the trained model.
 
-![](src/test/resources/IdOverW_vs_gmOverId.jpeg)
+![](src/test/resources/Charts/IdOverW_vs_gmOverId.jpeg)
 
-![](src/test/resources/gmOverId_vs_L.jpeg)
+![](src/test/resources/Charts/gmOverId_vs_L.jpeg)
 
 With the example parameters the fit of the data
 is not perfect such as to emphasize the difference between the simulated and modeled outputs, however with tweaks to the training parameters
 and the layout of the network itself extremely accurate fits can be achieved as shown below.
 
-![](src/test/resources/GoodFit.jpeg)
+![](src/test/resources/Charts/GoodFit.jpeg)
 
 
 ## Example 2:
@@ -109,16 +109,40 @@ The SimulationToChart example parses data from a .raw file given directly from a
 desired four columns (gm/id, fug, L, id/w) and trains a network based upon the transformed data. The trained network is then saved and loaded again to
 be used to analyze the achieved fit on the input data.
 
-Two lengths are sampled and the gm/id vs id/w curves are plotted correspondingly. Once again the model is not perfectly fit in the example to emphasize the difference between the 
-simulated and modeled data, but like in Example 1 with parameter changes the model can be fit to be nearly perfect.
+Two lengths are sampled from the input dataset housing ~100 lengths 
+and the gm/id vs id/w curves are plotted correspondingly. With tuned parameters the curves can be nearly identical
+as shown below
 
-![](src/test/resources/graph.jpeg)
+![](src/test/resources/Charts/nmos1.jpeg)
 
-![](src/test/resources/graph3.jpeg)
+![](src/test/resources/Charts/nmos2.jpeg)
 
-![](src/test/resources/graph2.jpeg)
+![](src/test/resources/Charts/nmos3.jpeg)
+
+## Tips for Training a Model
+
+The easiest and often most impactful parameters to change are taken as inputs to the TransistorNNModel object when it is 
+first created.
+
+
+- Batch Size: Analyze the curves in the UI when training on your dataset, and pick a batch size that lowers score per iteration in the beginning dramatically
+
+- Number of Epochs: More is generally better however more will take longer to train
+
+- Learning Rate: If your score curve during training is flat and never shifts, your learning rate is too high or low
+
+- Transform Cols: If some of your data is not well distributed over its range, transforming it will significantly increase the fit of your model
+
+You can also customize your model in other ways within the TransistorNNModel class by adjusting the setDefaultConfig class, adding or removing layers, changing activation functions, etc.
+
+When training on large data sets with a large model layout, using the CUDA backend in order to speed up computation when training
+the model can be very useful. Follow the instructions at the link below to achieve this.
+
+- [Backend for Training](https://deeplearning4j.konduit.ai/config/backends)
+
 
 ## Using a Trained Model in Matlab
+
 
 The example Matlab code given in the test/Matlab folder uses the path to a trained model (The model trained by the example code SimulationToChart), and takes in simulation data via a 
 csv file (also generated within the SimulationToChart example from the input .raw file)
@@ -129,12 +153,16 @@ In a similar fashion to the java example, multiple lengths are then chosen and t
 are graphed. Using matlab and allowing the interface between matlab matricies and the trained model alows for much easier data manupulation, 
 and far easier visualization of the model itself with matlabs intuitive plotting tools.
 
-![](src/test/resources/MatlabTwoLengthsPlot.jpg)
+NOTE: if you recomplied the jar file for the project using mvn install after utilizing the CUDA backend, matlab will not function with the Java Objects.
+You must swap the dependencies back to the CPU backend then execute the mvn install again.
+
+
+![](src/test/resources/Charts/MatlabTwoLengthsPlot.jpg)
 
 Using the model matlab is also able to intuitively plot the output characteristics of the model in higher dimensions. 
 This plot shows the corresponding id/w for any gm/id and fug given. The resulting curve covers far more points than the input simulation did.
 
-![](src/test/resources/Matlab3DPlot.jpg)
+![](src/test/resources/Charts/Matlab3DPlot.jpg)
 
 
 

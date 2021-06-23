@@ -24553,3 +24553,51 @@ Deeplearning4j UI server is auto-stopping after thread (name: main) died.
                 
 Deeplearning4j UI server stopped.
 
+2021-06-23 11:52:59,715 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [JCublasBackend] backend
+
+2021-06-23 11:53:21,287 - [INFO] - from org.nd4j.linalg.factory.Nd4jBackend in main
+                
+Loaded [CpuBackend] backend
+
+2021-06-23 11:53:22,281 - [INFO] - from org.nd4j.nativeblas.NativeOpsHolder in main
+                
+Number of threads used for linear algebra: 12
+
+2021-06-23 11:53:22,283 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+*********************************** CPU Feature Check Warning ***********************************
+
+2021-06-23 11:53:22,283 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+Warning: Initializing ND4J with Generic x86 binary on a CPU with AVX/AVX2 support
+
+2021-06-23 11:53:22,283 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+Using ND4J with AVX/AVX2 will improve performance. See deeplearning4j.org/cpu for more details
+
+2021-06-23 11:53:22,283 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+Or set environment variable ND4J_IGNORE_AVX=true to suppress this warning
+
+2021-06-23 11:53:22,283 - [WARN] - from org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory in main
+                
+*************************************************************************************************
+
+2021-06-23 11:53:22,335 - [INFO] - from org.nd4j.nativeblas.Nd4jBlas in main
+                
+Number of threads used for OpenMP BLAS: 12
+
+2021-06-23 11:53:22,352 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Backend used: [CPU]; OS: [Windows 10]
+
+2021-06-23 11:53:22,352 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Cores: [12]; Memory: [3.5GB];
+
+2021-06-23 11:53:22,352 - [INFO] - from org.nd4j.linalg.api.ops.executioner.DefaultOpExecutioner in main
+                
+Blas vendor: [OPENBLAS]
+

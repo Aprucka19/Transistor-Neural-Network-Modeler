@@ -30,41 +30,15 @@ classdef NNModel
                 output = double(outputDArray);
             end
             if(size(A,1) > 1000)
-               %fprintf("Computing 1000 results\n")
-
-                %C = ceil(size(A,1)/1000);
-
-                
-                
-                
-%                parfor i = 1:C
-%                    j = ((i-1)*1000+1);
-%                    if(i < C)
-%                        B(j:j+1000,:) = model.useModel(A(j:j+1000,:));
-%                   end
-%                    if(i == C)
-%                        B(j:end,:) = model.useModel(A(j:end,:));
-%                    end
                 
                 output = [model.useModel(A(1:1000,:)) ; model.useModel(A(1001:end,:))];
-%                end
-                
-               
-               
-                
+
             end
     
        
         end
         
-        function output = useModelPar(model, input)
-                output = input;
-                
-                parfor i = 1:size(input,1)
-                    output(i,:) = model.useModel(input(i,:));
-                end
-        end
-                    
+             
             
         function output = useModelCol(model, input, colNum)
 

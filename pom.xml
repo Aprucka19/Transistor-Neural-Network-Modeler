@@ -64,30 +64,30 @@
         ND4J backend: every project needs one of these. The backend defines the hardware on which network training
         will occur. "nd4j-native-platform" is for CPUs only (for running on all operating systems).
         -->
-<!--        <dependency>-->
-<!--            <groupId>org.nd4j</groupId>-->
-<!--            <artifactId>nd4j-native</artifactId>-->
-<!--            <version>${dl4j-master.version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.nd4j</groupId>
+            <artifactId>nd4j-native</artifactId>
+            <version>${dl4j-master.version}</version>
+        </dependency>
 
         <!-- CUDA: to use GPU for training (CUDA) instead of CPU, uncomment this, and remove nd4j-native-platform -->
         <!-- Requires CUDA to be installed to use. Change the version (8.0, 9.0, 9.1) to change the CUDA version -->
 
-        <dependency>
-            <groupId>org.nd4j</groupId>
-            <artifactId>nd4j-cuda-10.1</artifactId>
-            <version>${dl4j-master.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.nd4j</groupId>-->
+<!--            <artifactId>nd4j-cuda-10.1</artifactId>-->
+<!--            <version>${dl4j-master.version}</version>-->
+<!--        </dependency>-->
 
 
-        <!-- Optional, but recommended: if you use CUDA, also use CuDNN. To use this, CuDNN must also be installed -->
-        <!-- See: https://deeplearning4j.konduit.ai/config/backends/config-cudnn#using-deeplearning-4-j-with-cudnn -->
+<!--        &lt;!&ndash; Optional, but recommended: if you use CUDA, also use CuDNN. To use this, CuDNN must also be installed &ndash;&gt;-->
+<!--        &lt;!&ndash; See: https://deeplearning4j.konduit.ai/config/backends/config-cudnn#using-deeplearning-4-j-with-cudnn &ndash;&gt;-->
 
-        <dependency>
-            <groupId>org.deeplearning4j</groupId>
-            <artifactId>deeplearning4j-cuda-10.1</artifactId>
-            <version>${dl4j-master.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.deeplearning4j</groupId>-->
+<!--            <artifactId>deeplearning4j-cuda-10.1</artifactId>-->
+<!--            <version>${dl4j-master.version}</version>-->
+<!--        </dependency>-->
 
 
         <dependency>
