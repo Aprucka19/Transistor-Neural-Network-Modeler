@@ -1,0 +1,96 @@
+classdef NNModel
+    properties
+        inputColumns
+        outputColumns
+        modelObject
+        modelPath
+    end
+    methods
+        function model = NNModel(modelPath)
+            model.modelObject = javaObject("edlab.eda.transistorModel.UseTransistorModel",modelPath);
+            model.inputColumns = javaMethod("getInputColNames", model.modelObject);
+            model.outputColumns = javaMethod("getOutputColNames", model.modelObject);
+            model.modelPath = modelPath;
+        end
+        function output = useModel(model, input)
+            
+            A = input;
+            q = 2000;
+            if(size(A,1) <= q)
+                dblArray = javaArray('java.lang.Double',size(A,1),size(A,2));
+                JavaMatlabConvert = "edlab.eda.transistorModel.JavaMatlabConvert";
+
+                for m = 1:size(A,1)
+                    for n = 1:size(A,2)
+                        dblArray(m,n) = java.lang.Double(A(m,n));
+                    end
+                end
+
+                inputSArray = javaMethod("toJava",JavaMatlabConvert,dblArray);
+                outputSArray = javaMethod("useModel",model.modelObject,inputSArray);            
+                outputDArray = javaMethod("toMatlab",JavaMatlabConvert,outputSArray);
+                output = double(outputDArray);
+            end
+            if(size(A,1) > q)
+                
+                output = [model.useModel(A(1:q,:)) ; model.useModel(A(q+1:end,:))];
+            end
+            
+   
+       
+        end
+        
+        function output = useModelPar(model, input)
+            q = 2000;    
+            
+            
+            if(size(input,1) >= q)
+            
+                Z = floor(size(input,1)/q);
+                A = zeros(q,size(input,2),1:Z);
+                for j = 1:Z
+                    A(:,:,j) = input(((j-1)*q+1):j*q,:);
+
+                end
+                
+                
+                parfor (i = 1:Z)
+                    
+                    M = squeeze(A(:,:,i));
+                    
+                    B(:,:,i) = NNModel(model.modelPath).useModel(M);
+                    
+                end
+
+                output1 = reshape(permute(B,[1 3 2]),[Z*q 2]);
+                if(mod(size(input,1),q)~=0)
+                    output = [output1 ; model.useModel(input(Z*q+1:end,:))];
+                else
+                    output = output1;
+                end
+                
+                
+            end
+            if(size(input,1) < q)
+                output = model.useModel(input);
+            end
+                
+        end        
+                
+            
+        function output = useModelCol(model, input, colNum)
+
+            output = model.useModel(input);
+            output = output(:,colNum);
+        end
+        
+        function prop = properties(model)
+            prop = [javaObject("java.lang.String","Input Columns: ") model.inputColumns ...
+                javaObject("java.lang.String","Output Columns: ") model.outputColumns];
+        end
+        
+    end
+end
+
+
+        

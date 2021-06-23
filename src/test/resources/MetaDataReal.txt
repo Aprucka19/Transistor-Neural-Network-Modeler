@@ -1,0 +1,15 @@
+Library: LibraryName
+Cell: CellName
+Technology: [Node, Fab, Version]
+Terminals: [S, D, G, B]
+Simulation_Model: BSim3v3
+Model_Name: GivenModelName
+Value_Labels: [gm/Id, fug, Id/W, L]
+Value_Units: [1/V, Hz, A/m, m]
+Value_Range: [0:30, 1:1e8, 0:05, 1e-7:1e-5]
+Input_Values: [gm/Id, fug]
+Constant_Labels: [Temperature]
+Constant_Values: [27]
+Constant_Units: [C]
+Model File Names: [file1, file2]
+Model File Sections: [w3, 3sigma]
