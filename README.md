@@ -407,7 +407,7 @@ hold off
 ```
 
 
-![figure_3.eps](src\test\resources\Charts\MatlabLiveScriptMD/figure3.PNG)
+![figure_3.eps](src/test/resources/Charts/MatlabLiveScriptMD/figure3.PNG)
 
 
 
