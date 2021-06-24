@@ -2,6 +2,8 @@
 package edlab.eda.transistorModel;
 
 
+import java.io.File;
+
 public class TrainModel {
 
     /**
@@ -13,7 +15,8 @@ public class TrainModel {
     public static void main(String[] args) throws Exception {
 
         //Initialize paths to input data
-        String baseDir = "C:/Users/prucka/Transistor-Neural-Network-Modeler/src/test/resources/";
+        String absPath = new File("").getAbsolutePath();
+        String baseDir = absPath + "/src/test/resources/";
         String trainFileName = "gmIdTrain.csv";
         String testFileName = "gmIdTrain.csv";
         String inputPath = baseDir + trainFileName;

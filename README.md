@@ -16,7 +16,27 @@ to better fit a particular set of data.
 
 ## Installation
 
+This project makes use of java 1.8 and maven. If these are not set up on your system
+follow the first three instructions [here](https://www.tutorialkart.com/machine-learning/setup-environment-for-deep-learning-with-deeplearning4j/).
+IntelliJ is not required but may make using the library easier.
+
+This repository makes use of an aditional repository called nutmeg-reader in order to parse .raw simulation files directly
+from spectre
+
 Clone this repository:
+
+```bash
+$ git clone https://github.com/electronics-and-drives/nutmeg-reader.git
+```
+
+`cd nutmeg-reader` into the directory and install the maven package:
+
+```bash
+$ mvn install
+```
+
+Now that the dependency is available to maven, clone this repository:
+
 
 ```bash
 $ git clone https://github.com/Aprucka19/Transistor-Neural-Network-Modeler.git
@@ -28,10 +48,7 @@ $ git clone https://github.com/Aprucka19/Transistor-Neural-Network-Modeler.git
 $ mvn install
 ```
 
-The jar and dependencies for the repository will be installed within the directory where the repository was cloned
-
-The jar can be found in the target folder created when the mvn install command is called, and the path will be relevant when utilizing the 
-matlab interface for a trained model
+The jar and dependencies for the repository will be installed within the target folder of the  directory where the repository was cloned
 
 Opening the downloaded repository will reveal examples on running the model within the test folder, and in the main folder all the relevant
 classes are stored
@@ -51,35 +68,30 @@ Then import the corresponding package to your code
 import edlab.eda.transistorModel.*;
 ```
 
-### MATLAB
+So that your own project builds the jar with dependencies correctly when running the mvn install command, add this to your pom.xml file
 
-There are two variants how the JAR can be loaded in MATLAB.
-The first possibility is to run the command
-
-```matlab
-javaaddpath('<PATH_TO_JAR>');
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-assembly-plugin</artifactId>
+    <version>2.4.1</version>
+    <configuration>
+        <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+    </configuration>
+    <executions>
+        <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+                <goal>single</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 ```
 
-The second possibility is to add the path to the JAR to
-the file *javaclasspath.txt* and place this file in the working directory
-of MATLAB (this is the directory where MATLAB is started).
-
-Additionally, the corresponding scripts must be added to the search-path of
-MATLAB
-
-```matlab
-addpath('<PATH_TO_REPOSITORY>/src/main/matlab/');
-addpath('<PATH_TO_REPOSITORY>/src/test/matlab/');
-```
-
-Additional information can be found in the MATLAB and Octave Manuals
-
-- MATLAB
-    * [Java Class Path](https://de.mathworks.com/help/matlab/matlab_external/java-class-path.html)
-    * [Search Path](https://de.mathworks.com/help/matlab/search-path.html)
-- Octave
-    * [How to make Java classes available to Octave?](https://octave.org/doc/v4.0.1/How-to-make-Java-classes-available_003f.html)
-    * [Manipulating the Load Path](https://octave.org/doc/v4.0.1/Manipulating-the-Load-Path.html) 
 
 
 ## Example 1:
@@ -105,7 +117,7 @@ and the layout of the network itself extremely accurate fits can be achieved as 
 
 
 ## Example 2:
-The SimulationToChart example parses data from a .raw file given directly from a transistor simulation. It then transforms the output columns of the data to the 
+The SimulationToChart example parses data from a .raw file given directly from a transistor simulation from spectre. It then transforms the output columns of the data to the 
 desired four columns (gm/id, fug, L, id/w) and trains a network based upon the transformed data. The trained network is then saved and loaded again to
 be used to analyze the achieved fit on the input data.
 
@@ -133,13 +145,46 @@ first created.
 
 - Transform Cols: If some of your data is not well distributed over its range, transforming it will significantly increase the fit of your model
 
-You can also customize your model in other ways within the TransistorNNModel class by adjusting the setDefaultConfig class, adding or removing layers, changing activation functions, etc.
+You can also replace the stock model configuration itself by using the setConfig function 
+for your TransistorNNModel object. This allows you to customize your model in other ways such as adjusting the 
+setDefaultConfig class, adding or removing layers, changing activation functions, etc. This project is built using DL4J, 
+whose [documentation](https://deeplearning4j.konduit.ai/getting-started/core-concepts)
+also holds lots of potentially useful information when training a model.
 
 When training on large data sets with a large model layout, using the CUDA backend in order to speed up computation when training
 the model can be very useful. Follow the instructions at the link below to achieve this.
 
 - [Backend for Training](https://deeplearning4j.konduit.ai/config/backends)
 
+### MATLAB
+
+There are two variants how the JAR can be loaded in MATLAB.
+The first possibility is to run the command
+
+```matlab
+javaaddpath('<PATH_TO_JAR>');
+```
+
+The second possibility is to add the path to the JAR to
+the file *javaclasspath.txt* and place this file in the working directory
+of MATLAB (this is the directory where MATLAB is started).
+
+Additionally, the corresponding paths must be added to the search-path of
+MATLAB
+
+```matlab
+addpath('<PATH_TO_REPOSITORY>/src/main/matlab/');
+addpath('<PATH_TO_REPOSITORY>/src/test/matlab/');
+```
+
+Additional information can be found in the MATLAB and Octave Manuals
+
+- MATLAB
+  * [Java Class Path](https://de.mathworks.com/help/matlab/matlab_external/java-class-path.html)
+  * [Search Path](https://de.mathworks.com/help/matlab/search-path.html)
+- Octave
+  * [How to make Java classes available to Octave?](https://octave.org/doc/v4.0.1/How-to-make-Java-classes-available_003f.html)
+  * [Manipulating the Load Path](https://octave.org/doc/v4.0.1/Manipulating-the-Load-Path.html)
 
 ## Using a Trained Model in Matlab
 
@@ -153,9 +198,13 @@ In a similar fashion to the java example, multiple lengths are then chosen and t
 are graphed. Using matlab and allowing the interface between matlab matricies and the trained model alows for much easier data manupulation, 
 and far easier visualization of the model itself with matlabs intuitive plotting tools.
 
+Run the matlab live script first, NNLiveScript.mxl, then for additional figures run through the JavaInMatlab.m file
+
 NOTE: if you recomplied the jar file for the project using mvn install after utilizing the CUDA backend, matlab will not function with the Java Objects.
 You must swap the dependencies back to the CPU backend then execute the mvn install again.
 
+
+Here is a similar chart to the one created in Java in example 2 but instead created in Matlab.
 
 ![](src/test/resources/Charts/MatlabTwoLengthsPlot.jpg)
 

@@ -1,6 +1,7 @@
 package edlab.eda.transistorModel;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -17,8 +18,9 @@ public class SimulationToChart {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         //initialize paths
-        String rawName = "pmos.raw";
-        String baseDir = "C:/Users/Alex Prucka/IdeaProjects/Transistor-Neural-Network-Modeler/src/test/resources/";
+        String rawName = "pmos1.raw";
+        String absPath = new File("").getAbsolutePath();
+        String baseDir = absPath + "/src/test/resources/";
         String rawPath = baseDir +  rawName;
 
 
@@ -55,7 +57,7 @@ public class SimulationToChart {
         Collections.shuffle(fixedData,rand);
 
         //set new column names
-        columnNames = new String[]{"M0.m1:gmoverid","M0.m1:fug","L","id/w"};
+        columnNames = new String[]{"M0:gmoverid","M0:fug","L","id/w"};
         //endregion
 
 
@@ -64,7 +66,7 @@ public class SimulationToChart {
         TransistorModelMetaData metaData = new TransistorModelMetaData(baseDir + "MetaDataSample.csv",true);
 
         //Create NNModel trainer objet with data and input desired learning parameters
-        TransistorNNModel tmodel = new TransistorNNModel(metaData, columnNames,new String[]{"M0.m1:fug","id/w"},
+        TransistorNNModel tmodel = new TransistorNNModel(metaData, columnNames,new String[]{"M0:fug","id/w"},
             2,.25,0.001,0.9,0.999,10000,150,fixedData.subList(0, fixedData.size()));
 
         //Fit the nework to the input data, and specify that the training UI is desired
@@ -74,7 +76,7 @@ public class SimulationToChart {
         tmodel.evaluateFit(fixedData.subList(0,10000));
 
         //Save the model and metadata
-        tmodel.saveModelAsFile(baseDir,"pmos.bin","MetaDataReal.txt");
+        tmodel.saveModelAsFile(baseDir,"pmos1.bin","MetaDataReal.txt");
         //endregion
 
 
@@ -140,7 +142,7 @@ public class SimulationToChart {
 
         //region Run the input data through the trained model
         //Create the UseTransistorModel object with the previously saved model File
-        UseTransistorModel modelUse2 = new UseTransistorModel(baseDir + "pmos.bin");
+        UseTransistorModel modelUse2 = new UseTransistorModel(baseDir + "pmos1.bin");
 
         //For each input data set, parse it through the UseModel function of the UseTransistorModel and collect the
         //resulting output data
@@ -204,7 +206,7 @@ public class SimulationToChart {
         figure.grid("on","on");
         figure.legend("northeast");
         figure.font("Helvetica",15);
-        figure.saveas(baseDir + "Charts/pmos1.jpeg",1000,800);
+        figure.saveas(baseDir + "Charts/pmosBoth.jpeg",1000,800);
 
         //one plot with just the original curves
         MatlabChart figure2 = new MatlabChart();
@@ -220,7 +222,7 @@ public class SimulationToChart {
         figure2.grid("on","on");
         figure2.legend("northeast");
         figure2.font("Helvetica",15);
-        figure2.saveas(baseDir + "Charts/pmos2.jpeg",1000,800);
+        figure2.saveas(baseDir + "Charts/pmosSimulated.jpeg",1000,800);
 
         //One plot with just the neural net curves
         MatlabChart figure3 = new MatlabChart();
@@ -236,7 +238,7 @@ public class SimulationToChart {
         figure3.grid("on","on");
         figure3.legend("northeast");
         figure3.font("Helvetica",15);
-        figure3.saveas(baseDir + "Charts/pmos3.jpeg",1000,800);
+        figure3.saveas(baseDir + "Charts/pmosModeled.jpeg",1000,800);
         //endregion
 
 

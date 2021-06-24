@@ -40,10 +40,10 @@ public class TransformData {
         //create a transform process which adds, removes, reorders, and manipulates the columns in the dataset
         TransformProcess transform = new TransformProcess.Builder(schema)
                 .addConstantDoubleColumn("w",1e-5)
-                .doubleMathFunction("M0.m1:id",MathFunction.ABS)
-                .doubleColumnsMathOp("id/w",MathOp.Divide, new String[]{"M0.m1:id", "w"})
-                .removeAllColumnsExceptFor(new String[]{"id/w","M0.m1:fug","M0.m1:gmoverid","L"})
-                .reorderColumns((new String[]{"M0.m1:gmoverid","M0.m1:fug","L","id/w"}))
+                .doubleMathFunction("M0:id",MathFunction.ABS)
+                .doubleColumnsMathOp("id/w",MathOp.Divide, new String[]{"M0:id", "w"})
+                .removeAllColumnsExceptFor(new String[]{"id/w","M0:fug","M0:gmoverid","L"})
+                .reorderColumns((new String[]{"M0:gmoverid","M0:fug","L","id/w"}))
                 .build();
 
 

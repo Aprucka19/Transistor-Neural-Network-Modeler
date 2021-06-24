@@ -1,5 +1,6 @@
 package edlab.eda.transistorModel;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,7 +16,8 @@ public class UseModel {
      * @throws InterruptedException
      */
     public static void main(String[] args) throws IOException, InterruptedException {
-        String baseDir = "C:/Users/prucka/Transistor-Neural-Network-Modeler/src/test/resources/";
+        String absPath = new File("").getAbsolutePath();
+        String baseDir = absPath + "/src/test/resources/";
 
 
         //Get the relevant datasets from two csv files, both which contain transistor data for one length of transistor
