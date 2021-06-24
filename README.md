@@ -1,6 +1,6 @@
 # Transistor Neural Network Modeler
 This project implements a versatile modeling system that can be used to create neural network models
-for simulated data, allowing versatile mappings to be made. For example, when simulating transistor characteristics
+for simulated data, allowing various mappings to be made. For example, when simulating transistor characteristics
 normally a simulation program takes in the given width and length of the transistor, then calculates its DC operating point, and the
 resulting transistor characteristics such as transconductance and drain current are calculated.
 This modeling tool can be used to take in simulated data from an existing transistor, and output custom mappings. For example, a model could be trained
