@@ -125,11 +125,11 @@ Two lengths are sampled from the input dataset housing ~100 lengths
 and the gm/id vs id/w curves are plotted correspondingly. With tuned parameters the curves can be nearly identical
 as shown below
 
-![](src/test/resources/Charts/nmos1.jpeg)
+![](src/test/resources/Charts/pmosBoth.jpeg)
 
-![](src/test/resources/Charts/nmos2.jpeg)
+![](src/test/resources/Charts/pmosSimulated.jpeg)
 
-![](src/test/resources/Charts/nmos3.jpeg)
+![](src/test/resources/Charts/pmosModeled.jpeg)
 
 ## Tips for Training a Model
 
