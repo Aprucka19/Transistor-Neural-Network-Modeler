@@ -315,7 +315,7 @@ hold off
 ```
 
 
-![figure_0.eps](src\test\resources\Charts\MatlabLiveScriptMD/figure0.PNG)
+![figure_0.eps](src/test/resources/Charts/MatlabLiveScriptMD/figure0.PNG)
 
 
 
@@ -340,7 +340,7 @@ hold off
 ```
 
 
-![figure_1.eps](src\test\resources\Charts\MatlabLiveScriptMD/figure1.PNG)
+![figure_1.eps](src/test/resources/Charts/MatlabLiveScriptMD/figure1.PNG)
 
 
 
@@ -387,7 +387,7 @@ hold off
 ```
 
 
-![figure_2.eps](src\test\resources\Charts\MatlabLiveScriptMD/figure2.PNG)
+![figure_2.eps](src/test/resources/Charts/MatlabLiveScriptMD/figure2.PNG)
 
 
 
