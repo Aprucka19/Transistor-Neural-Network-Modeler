@@ -20,7 +20,7 @@ csvFile = pathToRepository +"src\test\resources\simDataPmos.csv";
 csvData = dlmread(csvFile, ",", 0, 0);
 
 
-%calculates result data on all examples(Will take a few minutes)
+%calculates result data on all examples
 
 tic
 data = model.useModel(csvData(:,1:2));
@@ -37,10 +37,10 @@ set(gca, 'ZScale', 'log')
 
 %plot used to show entire mapping within bounds of the neural network model
 %will take a few minutes to run
-fsurf(@(X,Y) model.useModelCol([X' Y'],2),[1 20 1e7 1.5e10])
-set(gca, 'ZScale', 'log')
+fsurf(@(X,Y) log10(model.useModelCol([X' Y'],2)),[1 20 1e7 1.5e10])
+%set(gca, 'ZScale', 'log')
 xlabel("gm/id")
 ylabel("fug")
 zlabel("id/w")
 
-
+latex2markdown("NNLiveScript.tex")

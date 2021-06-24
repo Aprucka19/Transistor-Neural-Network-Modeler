@@ -36,6 +36,9 @@ public class UseModel {
         //get the id/w and L data from the neural network for all input examples
         List<List<String>> resultMatrix = modelUse2.useModel(testInput2.getData());
 
+
+
+
         //Use a data parser class which can transform the data from List<List<String>> to arrays of doubles to be plotted
         StringMatrixTransforms doubleFinder = new StringMatrixTransforms(resultMatrix);
         StringMatrixTransforms doubleFinderInput = new StringMatrixTransforms(testInput3.getData());

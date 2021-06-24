@@ -25,7 +25,9 @@ classdef NNModel
                 end
 
                 inputSArray = javaMethod("toJava",JavaMatlabConvert,dblArray);
-                outputSArray = javaMethod("useModel",model.modelObject,inputSArray);            
+                
+                outputSArray = javaMethod("useModel",model.modelObject,inputSArray);
+                
                 outputDArray = javaMethod("toMatlab",JavaMatlabConvert,outputSArray);
                 output = double(outputDArray);
             end

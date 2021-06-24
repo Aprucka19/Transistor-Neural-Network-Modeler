@@ -198,18 +198,227 @@ In a similar fashion to the java example, multiple lengths are then chosen and t
 are graphed. Using matlab and allowing the interface between matlab matricies and the trained model alows for much easier data manupulation, 
 and far easier visualization of the model itself with matlabs intuitive plotting tools.
 
-Run the matlab live script first, NNLiveScript.mxl, then for additional figures run through the JavaInMatlab.m file
+In the next section, a static version of the liveScript can be seen to explain the matlab workflow. This script is stored in the test/Matlab folder.
+Within matlab the liveScript is interactable with sliders and boxes to change which values are plotted. 
 
 NOTE: if you recomplied the jar file for the project using mvn install after utilizing the CUDA backend, matlab will not function with the Java Objects.
 You must swap the dependencies back to the CPU backend then execute the mvn install again.
 
+# Using a Trained Model In Matlab
 
-Here is a similar chart to the one created in Java in example 2 but instead created in Matlab.
 
-![](src/test/resources/Charts/MatlabTwoLengthsPlot.jpg)
+First you must specify the path to your Transistor-Neural-Network-Modeler repository
 
+
+
+```matlab:Code
+pathToRepository = "C:/Users/Alex Prucka/IdeaProjects/Transistor-Neural-Network-Modeler/";
+```
+
+
+
+
+The path to the Matlab NNModel class is added to the classpath, and the path to the pmos1 model file is specified
+
+
+
+```matlab:Code
+modelPath = pathToRepository + "src/test/resources/pmos1.bin";
+classPath = pathToRepository + "src\main\Matlab";
+addpath(classPath)
+```
+
+
+
+
+A NNModel object is created, and the properties of the model are then printed, which contain the input and output column labels
+
+
+
+```matlab:Code
+model = NNModel(modelPath);
+model.properties
+```
+
+
+```text:Output
+ans =
+
+  java.lang.String[]:
+
+    'Input Columns: '
+    'M0:gmoverid'
+    'M0:fug'
+    'Output Columns: '
+    'L'
+    'id/w'
+```
+
+
+
+
+Then the input and output data used to train the model is read from a csv file to the csvData variable
+
+
+
+```matlab:Code
+csvFile = pathToRepository + "src\test\resources\simDataPmos.csv";
+csvData = dlmread(csvFile, ",", 0, 0);
+```
+
+
+
+
+Here you can select two indexs, where each index value samples a different transistor length to run through the created model
+
+
+
+```matlab:Code
+index1 = 13000;
+index2 = 6000;
+data1 = csvData(csvData(:,3)==csvData(index1,3),:);
+data2 = csvData(csvData(:,3)==csvData(index2,3),:);
+```
+
+
+
+
+The output from the NNModel for both sizes is then saved
+
+
+
+```matlab:Code
+results = model.useModel(data1(:,1:2));
+results2 = model.useModel(data2(:,1:2));
+```
+
+
+
+
+The data is then plotted for id/w vs gm/id from both the simulated data and the model output
+
+
+
+```matlab:Code
+figure
+hold on
+plot(data1(:,1),results(:,2))
+plot(data1(:,1),data1(:,4))
+plot(data2(:,1),results2(:,2))
+plot(data2(:,1),data2(:,4))
+title("id/w vs gm/id for L = "+csvData(index1,3)+"m and "+csvData(index2,3)+"m")
+set(gca, 'YScale', 'log')
+xlabel("gm/id (1/V)")
+ylabel("id/w (A/m)")
+legend("Model "+csvData(index1,3)+"m","Simulation "+csvData(index1,3)+"m", "Model "+csvData(index2,3)+"m", "Simulation "+csvData(index2,3)+"m")
+hold off
+```
+
+
+![figure_0.eps](C:\Users\Alex Prucka\IdeaProjects\Transistor-Neural-Network-Modeler\src\test\resources\Charts\MatlabLiveScriptMD/figure0.PNG)
+
+
+
+
+Now length vs gm/id are compared between the two
+
+
+
+```matlab:Code
+figure
+hold on
+plot(data1(:,1),results(:,1))
+plot(data1(:,1),data1(:,3))
+plot(data2(:,1),results2(:,1))
+plot(data2(:,1),data2(:,3))
+title("L vs gm/id for L = "+csvData(index1,3)+"m"+" and "+csvData(index2,3)+"m")
+set(gca, 'YScale', 'log')
+xlabel("gm/id (1/V)")
+ylabel("L (m)")
+legend("Model "+csvData(index1,3)+"m","Simulation "+csvData(index1,3)+"m", "Model "+csvData(index2,3)+"m", "Simulation "+csvData(index2,3)+"m")
+hold off
+```
+
+
+![figure_1.eps](C:\Users\Alex Prucka\IdeaProjects\Transistor-Neural-Network-Modeler\src\test\resources\Charts\MatlabLiveScriptMD/figure1.PNG)
+
+
+
+
+Some of the charts and examples which take longer to run do not integrate as well into the live script (Such as characterizing the model over an enormous range of values), and thus they are housed in the JavaInMatlab.m file where you can run them
+
+
+# Plotting Curves for Desired Frequencies
+
+
+These charts are an example of how the models may be used in design work. The apropriate fug would be placed in the system, then the plots would show necesary length and id/w for whatever gm/id is desired for the transistor
+
+
+
+
+Here a Fug is chosen with a slider, and the corresponding id/w and L values are calculated by a model for all gm/id in a range
+
+
+
+```matlab:Code
+fug = 10000000;
+calc =  [1:.01:20]';
+calc(:,2) = fug;
+calcResults = model.useModel(calc);
+```
+
+
+
+
+Here the id/w vs gm/id is plotted
+
+
+
+```matlab:Code
+figure
+hold on
+plot(calc(:,1),calcResults(:,2))
+
+title("id/w vs gm/id for fug = "+fug+"Hz")
+set(gca, 'YScale', 'log')
+xlabel("gm/id (1/V)")
+ylabel("id/w (A/m)")
+hold off
+```
+
+
+![figure_2.eps](C:\Users\Alex Prucka\IdeaProjects\Transistor-Neural-Network-Modeler\src\test\resources\Charts\MatlabLiveScriptMD/figure2.PNG)
+
+
+
+
+Here the L vs gm/id is plotted
+
+
+
+```matlab:Code
+figure
+hold on
+plot(calc(:,1),calcResults(:,1))
+title("L vs gm/id for fug = "+fug+"Hz")
+xlabel("gm/id (1/V)")
+ylabel("L (m)")
+hold off
+```
+
+
+![figure_3.eps](C:\Users\Alex Prucka\IdeaProjects\Transistor-Neural-Network-Modeler\src\test\resources\Charts\MatlabLiveScriptMD/figure3.PNG)
+
+
+
+
+
+
+## 3D Surf Figure
 Using the model matlab is also able to intuitively plot the output characteristics of the model in higher dimensions. 
 This plot shows the corresponding id/w for any gm/id and fug given. The resulting curve covers far more points than the input simulation did.
+Due to the number of points that need to be calculated, creating this figure can take a few minutes. As such the code to 
+create it is stored in the JavaInMatlab.m script where it can be ran. 
 
 ![](src/test/resources/Charts/Matlab3DPlot.jpg)
 

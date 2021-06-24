@@ -142,7 +142,7 @@ public class UseTransistorModel {
         ListStringSplit inputSplit = new ListStringSplit(modelInput);
         TransformProcessRecordReader inputTPRR = new TransformProcessRecordReader(new ListStringRecordReader(), inputTransformProcess);
         inputTPRR.initialize(inputSplit);
-        DataSetIterator inputDataIterator = new RecordReaderDataSetIterator(inputTPRR,1);
+        DataSetIterator inputDataIterator = new RecordReaderDataSetIterator(inputTPRR,modelInput.size());
         normalizer.fitLabel(false);
         inputDataIterator.setPreProcessor(normalizer);
         //endregion
