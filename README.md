@@ -156,7 +156,7 @@ the model can be very useful. Follow the instructions at the link below to achie
 
 - [Backend for Training](https://deeplearning4j.konduit.ai/config/backends)
 
-### MATLAB
+## MATLAB
 
 There are two variants how the JAR can be loaded in MATLAB.
 The first possibility is to run the command
