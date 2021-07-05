@@ -13,6 +13,13 @@ import org.datavec.api.transform.transform.doubletransform.DoubleMathOpTransform
 import org.datavec.api.writable.Writable;
 import org.deeplearning4j.core.storage.StatsStorage;
 import org.deeplearning4j.datasets.datavec.RecordReaderDataSetIterator;
+import org.deeplearning4j.earlystopping.EarlyStoppingConfiguration;
+import org.deeplearning4j.earlystopping.EarlyStoppingResult;
+import org.deeplearning4j.earlystopping.saver.LocalFileModelSaver;
+import org.deeplearning4j.earlystopping.scorecalc.DataSetLossCalculator;
+import org.deeplearning4j.earlystopping.termination.MaxEpochsTerminationCondition;
+import org.deeplearning4j.earlystopping.termination.MaxTimeIterationTerminationCondition;
+import org.deeplearning4j.earlystopping.trainer.EarlyStoppingTrainer;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.layers.*;
@@ -35,6 +42,7 @@ import org.deeplearning4j.ui.api.UIServer;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * A class which can be used to model device characteristics of a transistor using a nerual network, then
@@ -122,7 +130,11 @@ public class TransistorNNModel {
                 .layer(new DenseLayer.Builder().nIn(256).nOut(512).build())
                 .layer(new DenseLayer.Builder().nIn(512).nOut(1024).build())
 
+
                 .layer(new DenseLayer.Builder().nIn(1024).nOut(2048).build())
+//                .layer(new DenseLayer.Builder().nIn(2048).nOut(2048).build())
+                .layer(new DenseLayer.Builder().nIn(2048).nOut(4096).build())
+                .layer(new DenseLayer.Builder().nIn(4096).nOut(2048).build())
                 .layer(new DenseLayer.Builder().nIn(2048).nOut(1024).build())
                 .layer(new DenseLayer.Builder().nIn(1024).nOut(512).build())
                 .layer(new DenseLayer.Builder().nIn(512).nOut(256).build())
@@ -130,6 +142,7 @@ public class TransistorNNModel {
                 .layer(new OutputLayer.Builder(LossFunctions.LossFunction.MSE)
                 .activation(Activation.RELU).nIn(128).nOut(this.numOutputs).build())
             .build();
+        this.model = new MultiLayerNetwork(config);
     }
 
     /**
@@ -223,6 +236,16 @@ public class TransistorNNModel {
         }
     }
 
+    public void setModel(MultiLayerNetwork model) {
+        this.model = model;
+    }
+
+
+
+    public void fitNetworkToInputData(List<List<String>> testData, boolean trainUI) throws IOException, InterruptedException{
+        fitNetworkToInputData(testData,trainUI,new MultiLayerNetwork(this.config));
+    }
+
     /**
      * Function used to fit the MultiLayerNetwork model to the input data. A local host UI can be displayed if trainUI
      * is set to true
@@ -230,7 +253,7 @@ public class TransistorNNModel {
      * @throws IOException
      * @throws InterruptedException
      */
-    public void fitNetworkToInputData(boolean trainUI) throws IOException, InterruptedException {
+    public void fitNetworkToInputData(List<List<String>> testData, boolean trainUI, MultiLayerNetwork startingModel) throws IOException, InterruptedException {
 
         ListStringSplit inputSplit = new ListStringSplit(this.inputData);
         TransformProcessRecordReader inputRecordReader = new TransformProcessRecordReader(new ListStringRecordReader(), this.transformProcess);
@@ -244,12 +267,15 @@ public class TransistorNNModel {
         trainIterator.setPreProcessor(normalizer);
 
 
-        this.model = new MultiLayerNetwork(config);
-        model.init();
+
+
+        MultiLayerNetwork temp = startingModel;
+        temp.init();
         if(trainUI){
             //region Model Training UI Initialization
             //Initialize the user interface backend
             UIServer uiServer = UIServer.getInstance();
+
 
             //Configure where the network information (gradients, score vs. time etc) is to be stored. Here: store in memory.
             StatsStorage statsStorage = new InMemoryStatsStorage();         //Alternative: new FileStatsStorage(File), for saving and loading later
@@ -257,10 +283,32 @@ public class TransistorNNModel {
             //Attach the StatsStorage instance to the UI: this allows the contents of the StatsStorage to be visualized
             uiServer.attach(statsStorage);
 
-            model.setListeners(new StatsListener(statsStorage));
+            temp.setListeners(new StatsListener(statsStorage));
             //endregion
         }
-        model.fit(trainIterator,numEpochs);
+
+
+        double error = 1e10;
+        for(int i = 0; i<numEpochs; i++){
+            temp.fit(trainIterator);
+
+            ListStringSplit inputSplitE = new ListStringSplit(testData);
+            TransformProcessRecordReader testRecordReader = new TransformProcessRecordReader(new ListStringRecordReader(), this.transformProcess);
+            testRecordReader.initialize(inputSplitE);
+
+            RecordReaderDataSetIterator testIterator = new RecordReaderDataSetIterator(testRecordReader, testData.size(), numInputs, numOutputs + numInputs - 1, true);
+            testIterator.setPreProcessor(normalizer);
+            RegressionEvaluation evaluate = temp.evaluateRegression(testIterator);
+
+            if (evaluate.averageMeanSquaredError() < error){
+                this.model = temp;
+                error = evaluate.averageMeanSquaredError();
+                System.out.println(error+ " Epoch:"+i);
+
+            }
+        }
+
+
 
     }
 
@@ -279,6 +327,7 @@ public class TransistorNNModel {
             RecordReaderDataSetIterator testIterator = new RecordReaderDataSetIterator(testRecordReader, batchSize, numInputs, numOutputs + numInputs - 1, true);
             testIterator.setPreProcessor(normalizer);
             RegressionEvaluation evaluate = model.evaluateRegression(testIterator);
+
             System.out.println(evaluate.stats());
         }
         else{

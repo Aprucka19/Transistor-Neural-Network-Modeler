@@ -35,7 +35,7 @@ public class TrainModel {
             40, inputData.getData());
 
         //fit the model to the input data
-        model1.fitNetworkToInputData(true);
+        model1.fitNetworkToInputData(inputData.getData(),true);
 
         //evaluate the fit on the last 1000 examples in the input file and print resulting relevant metrics
         CSVtoStringMatrix evaluationData = new CSVtoStringMatrix(inputPathTest,11001,1000);
