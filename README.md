@@ -426,7 +426,7 @@ create it is stored in the JavaInMatlab.m script where it can be ran.
 
 ![](src/test/resources/Charts/Matlab3DPlot.jpg)
 
-##Automatic Circuit Optimizers
+## Automatic Circuit Optimizers
 
 The TestOptimizer file contains code and implements functions which automatically optimize two different
 circuit designs, a Symmetrical Amplifier and a Swing Current Mirror for whatever desired gain and output resistance is given.
