@@ -186,7 +186,7 @@ Additional information can be found in the MATLAB and Octave Manuals
   * [How to make Java classes available to Octave?](https://octave.org/doc/v4.0.1/How-to-make-Java-classes-available_003f.html)
   * [Manipulating the Load Path](https://octave.org/doc/v4.0.1/Manipulating-the-Load-Path.html)
 
-## Using a Trained Model in Matlab
+
 
 
 The example Matlab code given in the test/Matlab folder uses the path to a trained model (The model trained by the example code SimulationToChart), and takes in simulation data via a 
@@ -200,6 +200,10 @@ and far easier visualization of the model itself with matlabs intuitive plotting
 
 In the next section, a static version of the liveScript can be seen to explain the matlab workflow. This script is stored in the test/Matlab folder.
 Within matlab the liveScript is interactable with sliders and boxes to change which values are plotted. 
+
+The TestOptimizer file contains code and implements functions which automatically optimize two different 
+circuit designs, a Symmetrical Amplifier and a Swing Current Mirror. Further information is displayed after the static live script
+section.
 
 NOTE: if you recomplied the jar file for the project using mvn install after utilizing the CUDA backend, matlab will not function with the Java Objects.
 You must swap the dependencies back to the CPU backend then execute the mvn install again.
@@ -422,5 +426,19 @@ create it is stored in the JavaInMatlab.m script where it can be ran.
 
 ![](src/test/resources/Charts/Matlab3DPlot.jpg)
 
+##Automatic Circuit Optimizers
 
+The TestOptimizer file contains code and implements functions which automatically optimize two different
+circuit designs, a Symmetrical Amplifier and a Swing Current Mirror for whatever desired gain and output resistance is given.
+The resulting transistor widths and lengths needed are then displayed, and then the performance of the resulting transistor can
+then be verified in a circuit simulator.
+
+The script uses matlabs fminsearch funciton to find the exact fugs needed for each relevant transistor in order to acheive the desired
+gain or output resistance. These minimizing functions are contained in the files symAmp.m, VxFinder.m, and swingMirror.m.
+
+Within the TestOptimizer.m file, thorough descriptions of exactly how the model files are used and exactly what information is needed
+as input in order to return the desired widths and lengths is given. Note however that the models used to 
+create the optimizer were trained on a transistor technology which is under NDA, and as such the model files themselves could
+not be included in the github. In order to run the code to automatically find the widths and lengths, you will need to train
+models with the same mappings yourself (detailed in the script).
 
