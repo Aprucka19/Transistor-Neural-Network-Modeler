@@ -8,19 +8,19 @@
 %NOTE: You will need to train new models for your own transistors to test
 %this optimizer because the model files have not been
 %included as the trained models used are under NDA
-pathToFiles = "/home/share/device-characterization/ModelFiles/";
+pathToFiles = "C:\Users\Alex Prucka\IdeaProjects\Transistor-Neural-Network-Modeler\src\test\resources\";
 modelPath = pathToFiles + "nmosX350moreGdsoverw2.bin";
 modelPath46 = pathToFiles + "nmosX350fourtosix.bin";
 modelPathP = pathToFiles + "pmosX350moreGdsoverw.bin";
 
 
 
-classPath = "/home/pruckaa/IdeaProjects/Transistor-Neural-Network-Modeler/src/main/Matlab";
-modulePath = "/home/pruckaa/IdeaProjects/Transistor-Neural-Network-Modeler/src/test/Matlab";
+classPath = "C:\Users\Alex Prucka\IdeaProjects\Transistor-Neural-Network-Modeler\src\test\Matlab";
+modulePath = "C:\Users\Alex Prucka\IdeaProjects\Transistor-Neural-Network-Modeler\src\main\Matlab";
 addpath(classPath)
 addpath(modulePath)
 
-nutmegPath = "/home/pruckaa/IdeaProjects/nutmeg-reader/src/main/matlab/";
+nutmegPath = "C:\Users\Alex Prucka\IdeaProjects\nutmeg-reader\src\main\matlab";
 addpath(nutmegPath);
 
 %jarPath = "/home/pruckaa/IdeaProjects/Transistor-Neural-Network-Modeler/target/Transistor-Neural-Network-Modeler-1.0.0-beta7-bin.jar";
@@ -37,7 +37,6 @@ model46 = NNModel(modelPath46);
 model46.properties
 
 %defining desired charecteristics
-tic
 vb = 0.0;
 vr = 0.17;
 gmoverid = 10;
@@ -76,11 +75,13 @@ freqs;
 
 %calculating the corresponding Rout that was found
 Rout = 1/gds1+1/gds2+(gmoverid*Iref+trans2(6)*W2)/(gds1*gds2)
-toc
 
-tic
+
+%Alternatively, use the eval_swing function, along with the desired Iref
+%value and the L and W values given from the fminsearch optimization loop,
+%and return the Rout calculated from the spectre simulation
 Rout = eval_swing(Iref,L1,L2,W1,W2)
-toc
+
 
 
 
@@ -217,20 +218,20 @@ targetGain = 54;
 fug = 1e8;
 
 %define the minimizing funciton used in fminsearch
-func = @(x)symAmp2(x,model,modelP,targetGain,gmoverid,I,M);
+func = @(x)symAmp(x,model,modelP,targetGain,gmoverid,I,M);
 
 %calculate then display the resulting frequencies used in order to reach
 %the target amplification
-Z = fminsearch(func,[1e8;1e8;1e8;1e8]);
+Z = fminsearch(func,[fug,fug]);
 
 
 
 %Use the found frequencies and desired characterists in order to calculate
 %the resulting widths and lengths of the transistors
-Ncm2 = model.useModel([gmoverid,Z(2),1.65]);
-Pcm = modelP.useModel([gmoverid,Z(4),1.65]);
-Ndp = model.useModel([10,Z(3),1.55]);
-Ncm1 = model.useModel([10,Z(1),0.7]);
+Ncm2 = model.useModel([gmoverid,Z(1),1.65]);
+Pcm = modelP.useModel([gmoverid,Z(2),1.65]);
+Ndp = model.useModel([10,fug,1.55]);
+Ncm1 = model.useModel([10,fug,0.7]);
 
 
 %display the lengths
@@ -256,7 +257,63 @@ gdsN = Wncm2*Ncm2(3);
 Amag = M*gmndp/(gdsP+gdsN);
 A = 20*log10(Amag)
 
-eval_amp(Wncm1,Wncm2,Wndp,Wpcm1,Lncm1,Lncm2,Lndp,Lpcm,Iref,M)
-
 %calculate and display the -3db frequency of the amplifier
 F = (gdsP+gdsN)/(2*pi*20e-12)
+
+%Alternatively, use the eval_amp function, along with the desired Iref and
+%M value and the L and W values given from the fminsearch optimization loop,
+%and return the gain calculated from the spectre simulation
+A = eval_amp(Wncm1,Wncm2,Wndp,Wpcm1,Lncm1,Lncm2,Lndp,Lpcm,Iref,M)
+
+%% Symmetrical Amp with Simulation during Optimization
+%This section does essentially the same thing as the above code, however
+%instead of using the equation Amag = M*gmndp/(gdsP+gdsN) to calculate the
+%gain from the NNmodel outputs, each time within the optimization loop the
+%model takes the given frequencies and input characteristics, and runs the
+%spectre simulation viat the eval_amp function in order to return the
+%amplification that way, then adjusts the frequencies accordingly to tune
+%the amplification of the circuit. Depending on how fast your machine is,
+%this can take quite a few minutes due to the amount of simulations ran.
+
+
+%create the objects for the nmos and pmos models
+model = NNModel(modelPath);
+modelP = NNModel(modelPathP);
+
+%define desired characteristsics for the amplifier
+gmoverid = 10;
+I = 5e-6;
+M = 4;
+targetGain = 54;
+
+%define the minimizing funciton used in fminsearch
+func = @(x)symAmpSim(x,model,modelP,targetGain,gmoverid,I,M);
+
+%calculate then display the resulting frequencies used in order to reach
+%the target amplification
+Z = fminsearch(func,[1e8;1e8;1e8;1e8])
+
+%Use the found frequencies and desired characterists in order to calculate
+%the resulting widths and lengths of the transistors
+Ncm2 = model.useModel([gmoverid,Z(2),1.65]);
+Pcm = modelP.useModel([gmoverid,Z(4),1.65]);
+Ndp = model.useModel([10,Z(3),1.55]);
+Ncm1 = model.useModel([10,Z(1),0.7]);
+
+
+%display the lengths
+Lncm1 = Ncm1(1)
+Lncm2 = Ncm2(1)
+Lndp = Ndp(1)
+Lpcm = Pcm(1)
+
+%display the widths
+Wncm1 = I/Ncm1(2)
+Wncm2 = M*I/(Ncm2(2)*2)
+Wndp = I/(Ndp(2)*2)
+Wpcm1 = I/(2*Pcm(2))
+Wpcm2 = M*Wpcm1
+
+%Run one last simulation to calculate the resulting gain with the widths
+%and lengths
+A = eval_amp(Wncm1,Wncm2,Wndp,Wpcm1,Lncm1,Lncm2,Lndp,Lpcm,Iref,M)
