@@ -11,8 +11,8 @@ function A = symAmp(freqs,model,modelP,target,gmoverid,I,M)
 
 
 %Run input paramenters through the given models
-Ncm2 = model.useModel([gmoverid,freqs(1),1.65]);
-Pcm = modelP.useModel([gmoverid,freqs(2),1.65]);
+Ncm2 = useModel(model,[gmoverid,freqs(1),1.65]);
+Pcm = useModel(modelP,[gmoverid,freqs(2),1.65]);
 
 
 %calculate the width of both transistors

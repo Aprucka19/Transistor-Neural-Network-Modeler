@@ -202,8 +202,8 @@ hold off
 
 %% Symmetrical Amplifier
 %This section gives the sizes of transistors for a symmetrical amplifier,
-%given a desired Amplification and an Nmos and Pmos model file for the 
-%desired transistors which takes as an input gmoverid, fug, D, and outputs 
+%given a desired Amplification and an Nmos and Pmos model file for the
+%desired transistors which takes as an input gmoverid, fug, D, and outputs
 %the L, id/w, gds/W, and G of the given transistor
 
 %create the objects for the nmos and pmos models
@@ -253,7 +253,7 @@ gmndp = gmoverid*I/2;
 gdsP = Wpcm2*Pcm(3);
 gdsN = Wncm2*Ncm2(3);
 
-%calculate and display the amplification in decibels 
+%calculate and display the amplification in decibels
 Amag = M*gmndp/(gdsP+gdsN);
 A = 20*log10(Amag)
 
@@ -284,14 +284,18 @@ modelP = NNModel(modelPathP);
 gmoverid = 10;
 I = 5e-6;
 M = 4;
-targetGain = 54;
+targetGain = 56;
 
 %define the minimizing funciton used in fminsearch
-func = @(x)symAmpSim(x,model,modelP,targetGain,gmoverid,I,M);
+fileID = fopen("info.txt","w");
+func = @(x)symAmpSim(x,model,modelP,targetGain,gmoverid,I,M,fileID);
+
+options = optimset("TolFun",1e-2,"TolX",1e7,"Display","iter");
+
 
 %calculate then display the resulting frequencies used in order to reach
 %the target amplification
-Z = fminsearch(func,[1e8;1e8;1e8;1e8])
+[Z,a,b,c] = fminsearch(func,[1e8;1e8;1e8;1e8],options)
 
 %Use the found frequencies and desired characterists in order to calculate
 %the resulting widths and lengths of the transistors
@@ -316,4 +320,4 @@ Wpcm2 = M*Wpcm1
 
 %Run one last simulation to calculate the resulting gain with the widths
 %and lengths
-A = eval_amp(Wncm1,Wncm2,Wndp,Wpcm1,Lncm1,Lncm2,Lndp,Lpcm,Iref,M)
+A = eval_amp(Wncm1,Wncm2,Wndp,Wpcm1,Lncm1,Lncm2,Lndp,Lpcm,I,M)
