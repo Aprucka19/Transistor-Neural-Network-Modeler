@@ -442,3 +442,17 @@ create the optimizer were trained on a transistor technology which is under NDA,
 not be included in the github. In order to run the code to automatically find the widths and lengths, you will need to train
 models with the same mappings yourself (detailed in the script).
 
+## Using Matlab to Simulate Results with Spectre
+
+Within the TestOptimizer file there are also calls to the eval_swing and eval_amp functions. These functions modify a created
+netlist, then call the netlist within the command line using spectre. This allows you to either verify how accurate the 
+calculated values were within your optimizer in an actual simulation, or as given in the last example, use the simulator
+itself to optimize the fugs of your transistors.
+
+The last example using the simulation results to optimize your transistor allows you to set a gm/id value for your transistors, while getting
+resulting lengths and widths by just varying the fug. While this takes a good bit longer than using the estimation equations
+in the above sections, it converges much more quickly than just running an optimizer with the widths and lengths as inputs
+instead of the frequencies and the NN model, and there is added benefit in the fact that your are gauranteed a gm/id 
+that you desire. Alternate optimization functions could also potentially be used to reduce the 
+number of function calls and simulations neccesary.
+

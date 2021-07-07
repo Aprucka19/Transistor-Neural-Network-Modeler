@@ -1,0 +1,39 @@
+function A = eval_amp(Wncm1,Wncm2,Wndp,Wpcm,Lncm1,Lncm2,Lndp,Lpcm,Iref,M)
+
+timestamp=num2str(posixtime(datetime('now')) * 1e6);
+    
+system("cp amp.txt amp" + timestamp + ".scs");
+
+%replace placeholders in netlist with transistor parameters
+system("sed -i -e ""s/\${Iref}/"  + Iref  + "/""" + ...
+             " -e ""s/\${M}/"  + M  + "/""" + ...
+             " -e ""s/\${Wncm1}/" + Wncm1 + "/""" + ...
+             " -e ""s/\${Wncm2}/" + Wncm2 + "/""" + ...
+             " -e ""s/\${Wndp}/" + Wndp + "/""" + ...
+             " -e ""s/\${Wpcm}/"  + Wpcm  + "/""" + ...
+             " -e ""s/\${Lncm1}/" + Lncm1 + "/""" + ...
+             " -e ""s/\${Lncm2}/" + Lncm2 + "/""" + ...
+             " -e ""s/\${Lndp}/" + Lndp + "/""" + ...
+             " -e ""s/\${Lpcm}/" + Lpcm + "/""" + ...
+             " amp" + timestamp + ".scs");
+         
+ system("module load spectre && "+ ... 
+    "CDS_DIR=/home/f_plasma/plasma_ic/plasma_ic_xh035/users/pruckaa/cds " + ...
+    "spectre amp" + timestamp + ".scs &> /dev/null");
+
+file = "amp" + timestamp + ".raw";
+
+plot = readNutascii(file);
+plots = real(plot(1).waveData(:,:));
+net4 = real(20*log10(plots(:,1)));
+net7 = real(20*log10(plots(:,3)));
+freqs = plots(:,2);
+gain = net7-net4;
+
+rmdir("amp" + timestamp + ".raw.psf",'s');
+delete("amp" + timestamp + ".log");
+delete("amp" + timestamp + ".scs");
+delete("amp" + timestamp + ".raw");
+
+
+A = gain(1);

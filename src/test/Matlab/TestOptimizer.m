@@ -8,13 +8,23 @@
 %NOTE: You will need to train new models for your own transistors to test
 %this optimizer because the model files have not been
 %included as the trained models used are under NDA
-pathToRepository = "C:/Users/Alex Prucka/IdeaProjects/Transistor-Neural-Network-Modeler/";
-modelPath = pathToRepository + "src/test/resources/nmosX350moreGdsoverw2.bin";
-modelPath46 = pathToRepository + "src/test/resources/nmosX350fourtosix.bin";
-modelPathP = pathToRepository + "src/test/resources/pmosX350moreGdsoverw.bin";
-classPath = pathToRepository + "src\main\Matlab";
-addpath(classPath)
+pathToFiles = "/home/share/device-characterization/ModelFiles/";
+modelPath = pathToFiles + "nmosX350moreGdsoverw2.bin";
+modelPath46 = pathToFiles + "nmosX350fourtosix.bin";
+modelPathP = pathToFiles + "pmosX350moreGdsoverw.bin";
 
+
+
+classPath = "/home/pruckaa/IdeaProjects/Transistor-Neural-Network-Modeler/src/main/Matlab";
+modulePath = "/home/pruckaa/IdeaProjects/Transistor-Neural-Network-Modeler/src/test/Matlab";
+addpath(classPath)
+addpath(modulePath)
+
+nutmegPath = "/home/pruckaa/IdeaProjects/nutmeg-reader/src/main/matlab/";
+addpath(nutmegPath);
+
+%jarPath = "/home/pruckaa/IdeaProjects/Transistor-Neural-Network-Modeler/target/Transistor-Neural-Network-Modeler-1.0.0-beta7-bin.jar";
+%javaaddpath(jarPath);
 %% swingCurrentMirror
 %This section gives the sizes of transistors for a swing current mirror,
 %given a desired Rout and an Nmos model file for the desired transistor
@@ -22,10 +32,12 @@ addpath(classPath)
 %gds/W, G, Vdsat, and gmbs/w of the given transistor
 
 %creating the model object
+
 model46 = NNModel(modelPath46);
 model46.properties
 
 %defining desired charecteristics
+tic
 vb = 0.0;
 vr = 0.17;
 gmoverid = 10;
@@ -44,8 +56,8 @@ Z2 = fminsearch(func3,1);
 
 
 %Running the optimized parameters through the model for the last time
-trans1 = model46.useModel([gmoverid,freqs(1),Z2,0.0])
-trans2 = model46.useModel([gmoverid,freqs(2),trans1(4)-Z2,-Z2])
+trans1 = model46.useModel([gmoverid,freqs(1),Z2,0.0]);
+trans2 = model46.useModel([gmoverid,freqs(2),trans1(4)-Z2,-Z2]);
 
 %Determining the widths and lengths of the transistors
 W1 = Iref/trans1(2)
@@ -54,16 +66,22 @@ L1 = trans1(1)
 L2 = trans2(1)
 
 %Displaying the gds and gmbs values of both of the transistors
-gds1 = (trans1(3)*W1)
-gds2 = (trans2(3)*W2)
-gmbs1 = (trans1(6)*W1)
-gmbs2 = (trans2(6)*W2)
+gds1 = (trans1(3)*W1);
+gds2 = (trans2(3)*W2);
+gmbs1 = (trans1(6)*W1);
+gmbs2 = (trans2(6)*W2);
 
 %displaying the optimized frequencies that were found
-freqs
+freqs;
 
 %calculating the corresponding Rout that was found
 Rout = 1/gds1+1/gds2+(gmoverid*Iref+trans2(6)*W2)/(gds1*gds2)
+toc
+
+tic
+Rout = eval_swing(Iref,L1,L2,W1,W2)
+toc
+
 
 
 %% Data Verification
@@ -75,7 +93,7 @@ Rout = 1/gds1+1/gds2+(gmoverid*Iref+trans2(6)*W2)/(gds1*gds2)
 %the data, which could lead to incorrect optimization results
 
 %Path to data used to train the model
-csvFile = pathToRepository + "src\test\resources\simDataNmosX350fourtosix.csv";
+csvFile = pathToFiles + "simDatanmosX350fourtosix.csv";
 csvData = dlmread(csvFile, ",", 0, 0);
 
 %two random indexes in the dataset to pull random lengths
@@ -193,25 +211,26 @@ modelP = NNModel(modelPathP);
 
 %define desired characteristsics for the amplifier
 gmoverid = 10;
-I = 10e-6;
+I = 5e-6;
 M = 4;
-targetGain = 57;
+targetGain = 54;
 fug = 1e8;
 
 %define the minimizing funciton used in fminsearch
-func = @(x)symAmp(x,model,modelP,targetGain,gmoverid,I,M);
+func = @(x)symAmp2(x,model,modelP,targetGain,gmoverid,I,M);
 
 %calculate then display the resulting frequencies used in order to reach
 %the target amplification
-Z = fminsearch(func,[1e8;1e8])
+Z = fminsearch(func,[1e8;1e8;1e8;1e8]);
+
 
 
 %Use the found frequencies and desired characterists in order to calculate
 %the resulting widths and lengths of the transistors
-Ncm2 = model.useModel([gmoverid,Z(1),1.65]);
-Pcm = modelP.useModel([gmoverid,Z(2),1.65]);
-Ndp = model.useModel([10,fug,1.55]);
-Ncm1 = model.useModel([10,fug,0.7]);
+Ncm2 = model.useModel([gmoverid,Z(2),1.65]);
+Pcm = modelP.useModel([gmoverid,Z(4),1.65]);
+Ndp = model.useModel([10,Z(3),1.55]);
+Ncm1 = model.useModel([10,Z(1),0.7]);
 
 
 %display the lengths
@@ -236,6 +255,8 @@ gdsN = Wncm2*Ncm2(3);
 %calculate and display the amplification in decibels 
 Amag = M*gmndp/(gdsP+gdsN);
 A = 20*log10(Amag)
+
+eval_amp(Wncm1,Wncm2,Wndp,Wpcm1,Lncm1,Lncm2,Lndp,Lpcm,Iref,M)
 
 %calculate and display the -3db frequency of the amplifier
 F = (gdsP+gdsN)/(2*pi*20e-12)

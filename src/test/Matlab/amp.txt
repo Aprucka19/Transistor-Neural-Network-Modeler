@@ -1,0 +1,91 @@
+// Generated for: spectre
+// Generated on: Jun 30 12:10:15 2021
+// Design library name: wk_pruckaa
+// Design cell name: Symmetrical_Amplifier_tb2
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters Iref=${Iref}\
+ M=${M}\
+ CL=20p\
+ Lncm1=${Lncm1}\
+ Lncm2=${Lncm2} \
+ Lndp=${Lndp}\
+ Lpcm=${Lpcm}\
+ Wncm1=${Wncm1}\
+ Wncm2=${Wncm2} \
+ Wndp=${Wndp} \
+ Wpcm=${Wpcm}
+include "$CDS_DIR/.xkit/setup/xh035/cadence/spectre/mos/param.scs" section=3s
+include "$CDS_DIR/.xkit/setup/xh035/cadence/spectre/mos/bip.scs" section=tm
+include "$CDS_DIR/.xkit/setup/xh035/cadence/spectre/mos/bsim3v3.scs" section=tm
+include "$CDS_DIR/.xkit/setup/xh035/cadence/spectre/mos/cap.scs" section=tm
+include "$CDS_DIR/.xkit/setup/xh035/cadence/spectre/mos/dio.scs" section=tm
+include "$CDS_DIR/.xkit/setup/xh035/cadence/spectre/mos/ind.scs" section=tm
+include "$CDS_DIR/.xkit/setup/xh035/cadence/spectre/mos/res.scs" section=tm
+
+// Library name: wk_pruckaa
+// Cell name: Symmetrical_Amplifier
+// View name: schematic
+subckt Symmetrical_Amplifier Iref VDD\+ VDD\- Vin\+ Vin\- Vout
+    M6 (net13 Vin\+ net12 VDD\-) nmos m=(1)*(1) w=Wndp l=Lndp \
+        ad=0.7u*(Wndp) as=0.7u*(Wndp) pd=0.7u*2+(Wndp) ps=0.7u*2+(Wndp) \
+        nrd=0.3u/(Wndp) nrs=0.3u/(Wndp) par1=((1)*(1))
+    M5 (net20 Vin\- net12 VDD\-) nmos m=(1)*(1) w=Wndp l=Lndp \
+        ad=0.7u*(Wndp) as=0.7u*(Wndp) pd=0.7u*2+(Wndp) ps=0.7u*2+(Wndp) \
+        nrd=0.3u/(Wndp) nrs=0.3u/(Wndp) par1=((1)*(1))
+    M4 (net5 net5 VDD\- VDD\-) nmos m=(1)*(1) w=Wncm2 l=Lncm2 \
+        ad=0.7u*(Wncm2) as=0.7u*(Wncm2) pd=0.7u*2+(Wncm2) \
+        ps=0.7u*2+(Wncm2) nrd=0.3u/(Wncm2) nrs=0.3u/(Wncm2) par1=((1)*(1))
+    M3 (Vout net5 VDD\- VDD\-) nmos m=(1)*(1) w=Wncm2 l=Lncm2 \
+        ad=0.7u*(Wncm2) as=0.7u*(Wncm2) pd=0.7u*2+(Wncm2) \
+        ps=0.7u*2+(Wncm2) nrd=0.3u/(Wncm2) nrs=0.3u/(Wncm2) par1=((1)*(1))
+    M1 (Iref Iref VDD\- VDD\-) nmos m=(1)*(1) w=Wncm1 l=Lncm1 \
+        ad=0.7u*(Wncm1) as=0.7u*(Wncm1) pd=0.7u*2+(Wncm1) \
+        ps=0.7u*2+(Wncm1) nrd=0.3u/(Wncm1) nrs=0.3u/(Wncm1) par1=((1)*(1))
+    M0 (net12 Iref VDD\- VDD\-) nmos m=(1)*(1) w=Wncm1 l=Lncm1 \
+        ad=0.7u*(Wncm1) as=0.7u*(Wncm1) pd=0.7u*2+(Wncm1) \
+        ps=0.7u*2+(Wncm1) nrd=0.3u/(Wncm1) nrs=0.3u/(Wncm1) par1=((1)*(1))
+    M10 (net20 net20 VDD\+ VDD\+) pmos m=(1)*(1) w=Wpcm l=Lpcm \
+        ad=0.7u*(Wpcm) as=0.7u*(Wpcm) pd=0.7u*2+(Wpcm) ps=0.7u*2+(Wpcm) \
+        nrd=0.3u/(Wpcm) nrs=0.3u/(Wpcm) par1=((1)*(1))
+    M8 (net13 net13 VDD\+ VDD\+) pmos m=(1)*(1) w=Wpcm l=Lpcm \
+        ad=0.7u*(Wpcm) as=0.7u*(Wpcm) pd=0.7u*2+(Wpcm) ps=0.7u*2+(Wpcm) \
+        nrd=0.3u/(Wpcm) nrs=0.3u/(Wpcm) par1=((1)*(1))
+    M7 (net5 net20 VDD\+ VDD\+) pmos m=(1)*(1) w=M*Wpcm l=Lpcm \
+        ad=0.7u*(M*Wpcm) as=0.7u*(M*Wpcm) pd=0.7u*2+(M*Wpcm) \
+        ps=0.7u*2+(M*Wpcm) nrd=0.3u/(M*Wpcm) nrs=0.3u/(M*Wpcm) \
+        par1=((1)*(1))
+    M2 (Vout net13 VDD\+ VDD\+) pmos m=(1)*(1) w=M*Wpcm l=Lpcm \
+        ad=0.7u*(M*Wpcm) as=0.7u*(M*Wpcm) pd=0.7u*2+(M*Wpcm) \
+        ps=0.7u*2+(M*Wpcm) nrd=0.3u/(M*Wpcm) nrs=0.3u/(M*Wpcm) \
+        par1=((1)*(1))
+ends Symmetrical_Amplifier
+// End of subcircuit definition.
+
+// Library name: wk_pruckaa
+// Cell name: Symmetrical_Amplifier_tb2
+// View name: schematic
+I0 (net2 net5 0 net3 net4 net7) Symmetrical_Amplifier
+V2 (net5 0) vsource dc=3.3 type=sine
+V1 (net3 0) vsource dc=1.65 type=sine
+E0 (net6 0 net7 0) vcvs gain=1.0
+I1 (0 net2) isource dc=Iref type=sine
+C0 (net7 0) capacitor c=CL
+V3 (net4 net6) vsource mag=-1 type=sine
+simulatorOptions options psfversion="1.1.0" reltol=100e-6 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 homotopy=all limit=delta scalem=1.0 \
+    scale=1.0 compatible=spice2 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=both 
+ac ac start=1 stop=10G dec=10 annotate=status 
+//dcOp dc write="spectre.dc" maxiters=150 maxsteps=10000 annotate=status
+//dcOpInfo info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save net7 net4
+saveOptions options save=selected rawfmt=nutascii

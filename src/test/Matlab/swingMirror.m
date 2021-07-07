@@ -4,15 +4,17 @@ function result = swingMirror(freqs,model,gmoverid,vr,targetR,Iref)
 %drain voltage of the first transistor) in order to find the correct
 %frequency, and then the corresponding width and length for each transistor
 
-
-%minimization is used to find the propper drain voltage at the input
+%Calculate an estimate as to the vdsat of the transistor at a given
 %frequency
-func2 = @(x)VxFinder(x,freqs(1),gmoverid,0.0,model,vr);
-Z2 = fminsearch(func2,.35);
+Q = model.useModel([gmoverid,freqs(1),1.65,0.0]);
+
+%use the estimated vdsat and the given value vr to calculate the drain
+%voltage of the next transistor
+Vx = Q(5) + vr;
 
 %With the resulting input charecteristics, the models are run
-trans1 = model.useModel([gmoverid,freqs(1),Z2,0.0]);
-trans2 = model.useModel([gmoverid,freqs(2),trans1(4)-Z2,-Z2]);
+trans1 = model.useModel([gmoverid,freqs(1),Vx,0.0]);
+trans2 = model.useModel([gmoverid,freqs(2),trans1(4)-Vx,-Vx]);
 
 %Widths are found for the two transistors
 W1 = Iref/trans1(2);
