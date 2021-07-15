@@ -1,6 +1,6 @@
 # Transistor Neural Network Modeler
 
-Link to the documentation: [docs](https://aprucka19.github.io/Transistor-Neural-Network-Modeler/JavaDocs/)
+[JavaDocs for the implemented classes](https://aprucka19.github.io/Transistor-Neural-Network-Modeler/JavaDocs/)
 
 This project implements a versatile modeling system that can be used to create neural network models
 for simulated data, allowing various mappings to be made. For example, when simulating transistor characteristics
